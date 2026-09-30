@@ -1,4 +1,692 @@
+public final class com/ragchat/api/RagChat {
+	public static final field INSTANCE Lcom/ragchat/api/RagChat;
+	public final fun builder (Lkotlin/jvm/functions/Function1;)Lcom/ragchat/api/config/RagChatConfig;
+}
+
 public abstract interface class com/ragchat/api/RagChatApi {
 	public abstract fun getVersion ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/api/audit/AuditSink {
+	public abstract fun recordAudit (Ljava/lang/String;Ljava/util/Map;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/api/audit/AuditSink$DefaultImpls {
+	public static synthetic fun recordAudit$default (Lcom/ragchat/api/audit/AuditSink;Ljava/lang/String;Ljava/util/Map;JLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class com/ragchat/api/auth/AuthProvider {
+	public abstract fun getAuthorizationHeader (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/api/config/ModelRoutingMode : java/lang/Enum {
+	public static final field AUTO Lcom/ragchat/api/config/ModelRoutingMode;
+	public static final field CLOUD_FIRST Lcom/ragchat/api/config/ModelRoutingMode;
+	public static final field CLOUD_ONLY Lcom/ragchat/api/config/ModelRoutingMode;
+	public static final field LOCAL_FIRST Lcom/ragchat/api/config/ModelRoutingMode;
+	public static final field LOCAL_ONLY Lcom/ragchat/api/config/ModelRoutingMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/config/ModelRoutingMode;
+	public static fun values ()[Lcom/ragchat/api/config/ModelRoutingMode;
+}
+
+public final class com/ragchat/api/config/RagChatConfig {
+	public final fun getAuthProvider ()Lcom/ragchat/api/auth/AuthProvider;
+	public final fun getChunker ()Lcom/ragchat/api/ingestion/Chunker;
+	public final fun getCloudLlmProvider ()Lcom/ragchat/api/llm/LlmProvider;
+	public final fun getConsentProvider ()Lcom/ragchat/api/governance/ConsentProvider;
+	public final fun getDefaultTopK ()I
+	public final fun getEmbeddingProvider ()Lcom/ragchat/api/embedding/EmbeddingProvider;
+	public final fun getKeyProvider ()Lcom/ragchat/api/crypto/KeyProvider;
+	public final fun getLocalLlmProvider ()Lcom/ragchat/api/llm/LlmProvider;
+	public final fun getLogger ()Lcom/ragchat/api/logging/RagChatLogger;
+	public final fun getMinLogLevel ()Lcom/ragchat/api/logging/LogLevel;
+	public final fun getParsers ()Ljava/util/List;
+	public final fun getPiiRedactor ()Lcom/ragchat/api/governance/PiiRedactor;
+	public final fun getPolicyProvider ()Lcom/ragchat/api/governance/PolicyProvider;
+	public final fun getPromptTemplate ()Lcom/ragchat/api/prompt/PromptTemplate;
+	public final fun getQueryRewriter ()Lcom/ragchat/api/retrieval/QueryRewriter;
+	public final fun getRequestTimeoutMs ()J
+	public final fun getReranker ()Lcom/ragchat/api/retrieval/Reranker;
+	public final fun getRoutingMode ()Lcom/ragchat/api/config/ModelRoutingMode;
+	public final fun getTelemetrySink ()Lcom/ragchat/api/telemetry/TelemetrySink;
+	public final fun getVectorStore ()Lcom/ragchat/api/storage/VectorStore;
+}
+
+public final class com/ragchat/api/config/RagChatConfigBuilder {
+	public fun <init> ()V
+	public final fun addParser (Lcom/ragchat/api/parser/DocumentParser;)Lcom/ragchat/api/config/RagChatConfigBuilder;
+	public final fun build ()Lcom/ragchat/api/config/RagChatConfig;
+	public final fun getAuthProvider ()Lcom/ragchat/api/auth/AuthProvider;
+	public final fun getChunker ()Lcom/ragchat/api/ingestion/Chunker;
+	public final fun getCloudLlmProvider ()Lcom/ragchat/api/llm/LlmProvider;
+	public final fun getConsentProvider ()Lcom/ragchat/api/governance/ConsentProvider;
+	public final fun getDefaultTopK ()I
+	public final fun getEmbeddingProvider ()Lcom/ragchat/api/embedding/EmbeddingProvider;
+	public final fun getKeyProvider ()Lcom/ragchat/api/crypto/KeyProvider;
+	public final fun getLocalLlmProvider ()Lcom/ragchat/api/llm/LlmProvider;
+	public final fun getLogger ()Lcom/ragchat/api/logging/RagChatLogger;
+	public final fun getMinLogLevel ()Lcom/ragchat/api/logging/LogLevel;
+	public final fun getParsers ()Ljava/util/List;
+	public final fun getPiiRedactor ()Lcom/ragchat/api/governance/PiiRedactor;
+	public final fun getPolicyProvider ()Lcom/ragchat/api/governance/PolicyProvider;
+	public final fun getPromptTemplate ()Lcom/ragchat/api/prompt/PromptTemplate;
+	public final fun getQueryRewriter ()Lcom/ragchat/api/retrieval/QueryRewriter;
+	public final fun getRequestTimeoutMs ()J
+	public final fun getReranker ()Lcom/ragchat/api/retrieval/Reranker;
+	public final fun getRoutingMode ()Lcom/ragchat/api/config/ModelRoutingMode;
+	public final fun getTelemetrySink ()Lcom/ragchat/api/telemetry/TelemetrySink;
+	public final fun getVectorStore ()Lcom/ragchat/api/storage/VectorStore;
+	public final fun setAuthProvider (Lcom/ragchat/api/auth/AuthProvider;)V
+	public final fun setChunker (Lcom/ragchat/api/ingestion/Chunker;)V
+	public final fun setCloudLlmProvider (Lcom/ragchat/api/llm/LlmProvider;)V
+	public final fun setConsentProvider (Lcom/ragchat/api/governance/ConsentProvider;)V
+	public final fun setDefaultTopK (I)V
+	public final fun setEmbeddingProvider (Lcom/ragchat/api/embedding/EmbeddingProvider;)V
+	public final fun setKeyProvider (Lcom/ragchat/api/crypto/KeyProvider;)V
+	public final fun setLocalLlmProvider (Lcom/ragchat/api/llm/LlmProvider;)V
+	public final fun setLogger (Lcom/ragchat/api/logging/RagChatLogger;)V
+	public final fun setMinLogLevel (Lcom/ragchat/api/logging/LogLevel;)V
+	public final fun setPiiRedactor (Lcom/ragchat/api/governance/PiiRedactor;)V
+	public final fun setPolicyProvider (Lcom/ragchat/api/governance/PolicyProvider;)V
+	public final fun setPromptTemplate (Lcom/ragchat/api/prompt/PromptTemplate;)V
+	public final fun setQueryRewriter (Lcom/ragchat/api/retrieval/QueryRewriter;)V
+	public final fun setRequestTimeoutMs (J)V
+	public final fun setReranker (Lcom/ragchat/api/retrieval/Reranker;)V
+	public final fun setRoutingMode (Lcom/ragchat/api/config/ModelRoutingMode;)V
+	public final fun setTelemetrySink (Lcom/ragchat/api/telemetry/TelemetrySink;)V
+	public final fun setVectorStore (Lcom/ragchat/api/storage/VectorStore;)V
+}
+
+public abstract interface class com/ragchat/api/crypto/KeyProvider {
+	public abstract fun getKeyMaterial (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/ragchat/api/embedding/EmbeddingProvider : java/lang/AutoCloseable {
+	public abstract fun close ()V
+	public abstract fun embed (Ljava/util/List;Lcom/ragchat/api/embedding/EmbeddingTaskType;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getDimensions ()I
+	public abstract fun getMaxInputTokens ()I
+	public abstract fun getModelId ()Ljava/lang/String;
+	public abstract fun getNormalize ()Z
+	public abstract fun getVersion ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/embedding/EmbeddingProvider$DefaultImpls {
+	public static synthetic fun embed$default (Lcom/ragchat/api/embedding/EmbeddingProvider;Ljava/util/List;Lcom/ragchat/api/embedding/EmbeddingTaskType;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/api/embedding/EmbeddingTaskType : java/lang/Enum {
+	public static final field CLASSIFICATION Lcom/ragchat/api/embedding/EmbeddingTaskType;
+	public static final field RETRIEVAL_DOCUMENT Lcom/ragchat/api/embedding/EmbeddingTaskType;
+	public static final field RETRIEVAL_QUERY Lcom/ragchat/api/embedding/EmbeddingTaskType;
+	public static final field SEMANTIC_SIMILARITY Lcom/ragchat/api/embedding/EmbeddingTaskType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/embedding/EmbeddingTaskType;
+	public static fun values ()[Lcom/ragchat/api/embedding/EmbeddingTaskType;
+}
+
+public abstract class com/ragchat/api/error/SdkError : java/lang/Exception {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCode ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/error/SdkError$AuthenticationError : com/ragchat/api/error/SdkError {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getErrorCode ()Ljava/lang/String;
+	public final fun getProviderId ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/error/SdkError$ConsentDeniedError : com/ragchat/api/error/SdkError {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun getConsentType ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/error/SdkError$DocumentParsingError : com/ragchat/api/error/SdkError {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getErrorCode ()Ljava/lang/String;
+	public final fun getMimeType ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/error/SdkError$EmbeddingError : com/ragchat/api/error/SdkError {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getErrorCode ()Ljava/lang/String;
+	public final fun getModelId ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/error/SdkError$InitializationError : com/ragchat/api/error/SdkError {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class com/ragchat/api/error/SdkError$ModelUnavailableError : com/ragchat/api/error/SdkError {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getModelId ()Ljava/lang/String;
+	public final fun getReason ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/error/SdkError$PolicyViolationError : com/ragchat/api/error/SdkError {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun getCategory ()Ljava/lang/String;
+	public final fun getRuleId ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/error/SdkError$StorageCryptoError : com/ragchat/api/error/SdkError {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getErrorCode ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/error/SdkError$TokenLimitExceededError : com/ragchat/api/error/SdkError {
+	public fun <init> (II)V
+	public final fun getActual ()I
+	public final fun getMaxAllowed ()I
+}
+
+public final class com/ragchat/api/error/SdkError$VectorStoreError : com/ragchat/api/error/SdkError {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getErrorCode ()Ljava/lang/String;
+	public final fun getOperation ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/api/governance/ConsentProvider {
+	public abstract fun hasConsent (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/ragchat/api/governance/PiiRedactor {
+	public abstract fun redact (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/api/governance/PolicyDecision {
+}
+
+public final class com/ragchat/api/governance/PolicyDecision$Allowed : com/ragchat/api/governance/PolicyDecision {
+	public static final field INSTANCE Lcom/ragchat/api/governance/PolicyDecision$Allowed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/governance/PolicyDecision$Denied : com/ragchat/api/governance/PolicyDecision {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/ragchat/api/governance/PolicyDecision$Denied;
+	public static synthetic fun copy$default (Lcom/ragchat/api/governance/PolicyDecision$Denied;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/api/governance/PolicyDecision$Denied;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategory ()Ljava/lang/String;
+	public final fun getRuleId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/api/governance/PolicyProvider {
+	public abstract fun evaluate (Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/ragchat/api/ingestion/Chunker {
+	public abstract fun chunk (Lcom/ragchat/api/model/Document;Ljava/util/List;)Ljava/util/List;
+}
+
+public final class com/ragchat/api/llm/Availability : java/lang/Enum {
+	public static final field AVAILABLE Lcom/ragchat/api/llm/Availability;
+	public static final field DOWNLOAD_REQUIRED Lcom/ragchat/api/llm/Availability;
+	public static final field HARDWARE_UNSUPPORTED Lcom/ragchat/api/llm/Availability;
+	public static final field UNAVAILABLE Lcom/ragchat/api/llm/Availability;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/llm/Availability;
+	public static fun values ()[Lcom/ragchat/api/llm/Availability;
+}
+
+public final class com/ragchat/api/llm/LlmCapabilities {
+	public fun <init> (IIZZZLcom/ragchat/api/model/Locality;Ljava/lang/String;)V
+	public synthetic fun <init> (IIZZZLcom/ragchat/api/model/Locality;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun component6 ()Lcom/ragchat/api/model/Locality;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy (IIZZZLcom/ragchat/api/model/Locality;Ljava/lang/String;)Lcom/ragchat/api/llm/LlmCapabilities;
+	public static synthetic fun copy$default (Lcom/ragchat/api/llm/LlmCapabilities;IIZZZLcom/ragchat/api/model/Locality;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/api/llm/LlmCapabilities;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContextWindow ()I
+	public final fun getDataResidency ()Ljava/lang/String;
+	public final fun getLocality ()Lcom/ragchat/api/model/Locality;
+	public final fun getMaxOutputTokens ()I
+	public final fun getMultimodal ()Z
+	public final fun getStreaming ()Z
+	public final fun getToolCalling ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/api/llm/LlmProvider : java/lang/AutoCloseable {
+	public abstract fun availability (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun close ()V
+	public abstract fun countTokens (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun generate (Lcom/ragchat/api/llm/LlmRequest;)Lkotlinx/coroutines/flow/Flow;
+	public abstract fun getCapabilities ()Lcom/ragchat/api/llm/LlmCapabilities;
+	public abstract fun getId ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/llm/LlmRequest {
+	public fun <init> (Ljava/util/List;FLjava/lang/Integer;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;FLjava/lang/Integer;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()F
+	public final fun component3 ()Ljava/lang/Integer;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;FLjava/lang/Integer;Ljava/util/List;)Lcom/ragchat/api/llm/LlmRequest;
+	public static synthetic fun copy$default (Lcom/ragchat/api/llm/LlmRequest;Ljava/util/List;FLjava/lang/Integer;Ljava/util/List;ILjava/lang/Object;)Lcom/ragchat/api/llm/LlmRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMaxTokens ()Ljava/lang/Integer;
+	public final fun getMessages ()Ljava/util/List;
+	public final fun getStopSequences ()Ljava/util/List;
+	public final fun getTemperature ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/logging/LogLevel : java/lang/Enum {
+	public static final field DEBUG Lcom/ragchat/api/logging/LogLevel;
+	public static final field ERROR Lcom/ragchat/api/logging/LogLevel;
+	public static final field INFO Lcom/ragchat/api/logging/LogLevel;
+	public static final field VERBOSE Lcom/ragchat/api/logging/LogLevel;
+	public static final field WARN Lcom/ragchat/api/logging/LogLevel;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/logging/LogLevel;
+	public static fun values ()[Lcom/ragchat/api/logging/LogLevel;
+}
+
+public abstract interface class com/ragchat/api/logging/RagChatLogger {
+	public abstract fun log (Lcom/ragchat/api/logging/LogLevel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+}
+
+public final class com/ragchat/api/logging/RagChatLogger$DefaultImpls {
+	public static synthetic fun log$default (Lcom/ragchat/api/logging/RagChatLogger;Lcom/ragchat/api/logging/LogLevel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;ILjava/lang/Object;)V
+}
+
+public final class com/ragchat/api/model/Answer {
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/Float;Ljava/lang/String;Lcom/ragchat/api/model/Locality;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/lang/Float;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Lcom/ragchat/api/model/Locality;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;Ljava/lang/Float;Ljava/lang/String;Lcom/ragchat/api/model/Locality;)Lcom/ragchat/api/model/Answer;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/Answer;Ljava/lang/String;Ljava/util/List;Ljava/lang/Float;Ljava/lang/String;Lcom/ragchat/api/model/Locality;ILjava/lang/Object;)Lcom/ragchat/api/model/Answer;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCitations ()Ljava/util/List;
+	public final fun getConfidence ()Ljava/lang/Float;
+	public final fun getLocality ()Lcom/ragchat/api/model/Locality;
+	public final fun getModelUsed ()Ljava/lang/String;
+	public final fun getText ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/ChatMessage {
+	public fun <init> (Ljava/lang/String;Lcom/ragchat/api/model/MessageRole;Ljava/lang/String;JLjava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/ragchat/api/model/MessageRole;Ljava/lang/String;JLjava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/ragchat/api/model/MessageRole;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()J
+	public final fun component5 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Lcom/ragchat/api/model/MessageRole;Ljava/lang/String;JLjava/util/List;)Lcom/ragchat/api/model/ChatMessage;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/ChatMessage;Ljava/lang/String;Lcom/ragchat/api/model/MessageRole;Ljava/lang/String;JLjava/util/List;ILjava/lang/Object;)Lcom/ragchat/api/model/ChatMessage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCitations ()Ljava/util/List;
+	public final fun getContent ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getRole ()Lcom/ragchat/api/model/MessageRole;
+	public final fun getTimestampEpochMs ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/Chunk {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()I
+	public final fun component5 ()I
+	public final fun component6 ()Ljava/util/Map;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/util/Map;)Lcom/ragchat/api/model/Chunk;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/Chunk;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/util/Map;ILjava/lang/Object;)Lcom/ragchat/api/model/Chunk;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContent ()Ljava/lang/String;
+	public final fun getDocumentId ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMetadata ()Ljava/util/Map;
+	public final fun getSequenceNumber ()I
+	public final fun getTokenCount ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/Citation {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Float;Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Float;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Integer;
+	public final fun component5 ()Ljava/lang/Float;
+	public final fun component6 ()Ljava/util/Map;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Float;Ljava/util/Map;)Lcom/ragchat/api/model/Citation;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/Citation;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Float;Ljava/util/Map;ILjava/lang/Object;)Lcom/ragchat/api/model/Citation;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChunkId ()Ljava/lang/String;
+	public final fun getDocumentId ()Ljava/lang/String;
+	public final fun getMetadata ()Ljava/util/Map;
+	public final fun getPageNumber ()Ljava/lang/Integer;
+	public final fun getScore ()Ljava/lang/Float;
+	public final fun getTextSnippet ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/Collection {
+	public fun <init> (Ljava/lang/String;Lcom/ragchat/api/model/CollectionSpec;JJ)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/ragchat/api/model/CollectionSpec;JJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/ragchat/api/model/CollectionSpec;
+	public final fun component3 ()J
+	public final fun component4 ()J
+	public final fun copy (Ljava/lang/String;Lcom/ragchat/api/model/CollectionSpec;JJ)Lcom/ragchat/api/model/Collection;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/Collection;Ljava/lang/String;Lcom/ragchat/api/model/CollectionSpec;JJILjava/lang/Object;)Lcom/ragchat/api/model/Collection;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChunkCount ()J
+	public final fun getCreatedAtEpochMs ()J
+	public final fun getId ()Ljava/lang/String;
+	public final fun getSpec ()Lcom/ragchat/api/model/CollectionSpec;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/CollectionSpec {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILcom/ragchat/api/model/DistanceMetric;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILcom/ragchat/api/model/DistanceMetric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()I
+	public final fun component5 ()Lcom/ragchat/api/model/DistanceMetric;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILcom/ragchat/api/model/DistanceMetric;)Lcom/ragchat/api/model/CollectionSpec;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/CollectionSpec;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILcom/ragchat/api/model/DistanceMetric;ILjava/lang/Object;)Lcom/ragchat/api/model/CollectionSpec;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDimensions ()I
+	public final fun getDistanceMetric ()Lcom/ragchat/api/model/DistanceMetric;
+	public final fun getEmbeddingModelId ()Ljava/lang/String;
+	public final fun getEmbeddingModelVersion ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/CollectionStats {
+	public fun <init> (Ljava/lang/String;JJJ)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun component4 ()J
+	public final fun copy (Ljava/lang/String;JJJ)Lcom/ragchat/api/model/CollectionStats;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/CollectionStats;Ljava/lang/String;JJJILjava/lang/Object;)Lcom/ragchat/api/model/CollectionStats;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollectionId ()Ljava/lang/String;
+	public final fun getStorageSizeBytes ()J
+	public final fun getTotalChunks ()J
+	public final fun getTotalDocuments ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/DistanceMetric : java/lang/Enum {
+	public static final field COSINE Lcom/ragchat/api/model/DistanceMetric;
+	public static final field DOT_PRODUCT Lcom/ragchat/api/model/DistanceMetric;
+	public static final field EUCLIDEAN Lcom/ragchat/api/model/DistanceMetric;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/model/DistanceMetric;
+	public static fun values ()[Lcom/ragchat/api/model/DistanceMetric;
+}
+
+public final class com/ragchat/api/model/Document {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;J)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/util/Map;
+	public final fun component5 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;J)Lcom/ragchat/api/model/Document;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/Document;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;JILjava/lang/Object;)Lcom/ragchat/api/model/Document;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAtEpochMs ()J
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMetadata ()Ljava/util/Map;
+	public final fun getMimeType ()Ljava/lang/String;
+	public final fun getUri ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/api/model/LlmEvent {
+}
+
+public final class com/ragchat/api/model/LlmEvent$Done : com/ragchat/api/model/LlmEvent {
+	public static final field INSTANCE Lcom/ragchat/api/model/LlmEvent$Done;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/LlmEvent$Error : com/ragchat/api/model/LlmEvent {
+	public fun <init> (Lcom/ragchat/api/error/SdkError;)V
+	public final fun component1 ()Lcom/ragchat/api/error/SdkError;
+	public final fun copy (Lcom/ragchat/api/error/SdkError;)Lcom/ragchat/api/model/LlmEvent$Error;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/LlmEvent$Error;Lcom/ragchat/api/error/SdkError;ILjava/lang/Object;)Lcom/ragchat/api/model/LlmEvent$Error;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Lcom/ragchat/api/error/SdkError;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/LlmEvent$Metadata : com/ragchat/api/model/LlmEvent {
+	public fun <init> (IILjava/lang/String;)V
+	public synthetic fun <init> (IILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (IILjava/lang/String;)Lcom/ragchat/api/model/LlmEvent$Metadata;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/LlmEvent$Metadata;IILjava/lang/String;ILjava/lang/Object;)Lcom/ragchat/api/model/LlmEvent$Metadata;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCandidateTokens ()I
+	public final fun getFinishReason ()Ljava/lang/String;
+	public final fun getPromptTokens ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/LlmEvent$Token : com/ragchat/api/model/LlmEvent {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/ragchat/api/model/LlmEvent$Token;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/LlmEvent$Token;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/api/model/LlmEvent$Token;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getText ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/Locality : java/lang/Enum {
+	public static final field CLOUD Lcom/ragchat/api/model/Locality;
+	public static final field LOCAL Lcom/ragchat/api/model/Locality;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/model/Locality;
+	public static fun values ()[Lcom/ragchat/api/model/Locality;
+}
+
+public final class com/ragchat/api/model/MessageRole : java/lang/Enum {
+	public static final field ASSISTANT Lcom/ragchat/api/model/MessageRole;
+	public static final field SYSTEM Lcom/ragchat/api/model/MessageRole;
+	public static final field USER Lcom/ragchat/api/model/MessageRole;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/model/MessageRole;
+	public static fun values ()[Lcom/ragchat/api/model/MessageRole;
+}
+
+public abstract interface class com/ragchat/api/model/ParsedElement {
+	public abstract fun getPageNumber ()Ljava/lang/Integer;
+	public abstract fun getSection ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/ParsedElement$Heading : com/ragchat/api/model/ParsedElement {
+	public fun <init> (Ljava/lang/String;ILjava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILjava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun component3 ()Ljava/lang/Integer;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;ILjava/lang/Integer;Ljava/lang/String;)Lcom/ragchat/api/model/ParsedElement$Heading;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/ParsedElement$Heading;Ljava/lang/String;ILjava/lang/Integer;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/api/model/ParsedElement$Heading;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLevel ()I
+	public fun getPageNumber ()Ljava/lang/Integer;
+	public fun getSection ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/ParsedElement$Image : com/ragchat/api/model/ParsedElement {
+	public fun <init> (Ljava/lang/String;[BLjava/lang/String;Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;[BLjava/lang/String;Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAltText ()Ljava/lang/String;
+	public final fun getImageBytes ()[B
+	public final fun getMimeType ()Ljava/lang/String;
+	public fun getPageNumber ()Ljava/lang/Integer;
+	public fun getSection ()Ljava/lang/String;
+	public fun hashCode ()I
+}
+
+public final class com/ragchat/api/model/ParsedElement$PageBreak : com/ragchat/api/model/ParsedElement {
+	public fun <init> (ILjava/lang/String;)V
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (ILjava/lang/String;)Lcom/ragchat/api/model/ParsedElement$PageBreak;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/ParsedElement$PageBreak;ILjava/lang/String;ILjava/lang/Object;)Lcom/ragchat/api/model/ParsedElement$PageBreak;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getPageNumber ()Ljava/lang/Integer;
+	public fun getSection ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/ParsedElement$Table : com/ragchat/api/model/ParsedElement {
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/lang/Integer;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/util/List;Ljava/lang/Integer;Ljava/lang/String;)Lcom/ragchat/api/model/ParsedElement$Table;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/ParsedElement$Table;Ljava/util/List;Ljava/util/List;Ljava/lang/Integer;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/api/model/ParsedElement$Table;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHeaders ()Ljava/util/List;
+	public fun getPageNumber ()Ljava/lang/Integer;
+	public final fun getRows ()Ljava/util/List;
+	public fun getSection ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/model/ParsedElement$Text : com/ragchat/api/model/ParsedElement {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Integer;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;)Lcom/ragchat/api/model/ParsedElement$Text;
+	public static synthetic fun copy$default (Lcom/ragchat/api/model/ParsedElement$Text;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/api/model/ParsedElement$Text;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getPageNumber ()Ljava/lang/Integer;
+	public fun getSection ()Ljava/lang/String;
+	public final fun getText ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/api/parser/DocumentParser {
+	public abstract fun parse (Lcom/ragchat/api/parser/DocumentSource;)Lkotlinx/coroutines/flow/Flow;
+	public abstract fun supports (Ljava/lang/String;)Z
+}
+
+public abstract interface class com/ragchat/api/parser/DocumentSource : java/lang/AutoCloseable {
+	public abstract fun getMimeType ()Ljava/lang/String;
+	public abstract fun getSizeBytes ()J
+	public abstract fun openStream ()Ljava/io/InputStream;
+}
+
+public abstract interface class com/ragchat/api/prompt/PromptTemplate {
+	public abstract fun buildPrompt (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/api/retrieval/QueryRewriter {
+	public abstract fun rewrite (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/ragchat/api/retrieval/Reranker {
+	public abstract fun rerank (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/api/storage/SearchResult {
+	public fun <init> (Lcom/ragchat/api/model/Chunk;FLjava/lang/Float;)V
+	public synthetic fun <init> (Lcom/ragchat/api/model/Chunk;FLjava/lang/Float;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/ragchat/api/model/Chunk;
+	public final fun component2 ()F
+	public final fun component3 ()Ljava/lang/Float;
+	public final fun copy (Lcom/ragchat/api/model/Chunk;FLjava/lang/Float;)Lcom/ragchat/api/storage/SearchResult;
+	public static synthetic fun copy$default (Lcom/ragchat/api/storage/SearchResult;Lcom/ragchat/api/model/Chunk;FLjava/lang/Float;ILjava/lang/Object;)Lcom/ragchat/api/storage/SearchResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChunk ()Lcom/ragchat/api/model/Chunk;
+	public final fun getDistance ()Ljava/lang/Float;
+	public final fun getScore ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/api/storage/VectorStore : java/lang/AutoCloseable {
+	public abstract fun close ()V
+	public abstract fun createCollection (Lcom/ragchat/api/model/CollectionSpec;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun cryptoShred (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteByDocument (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun export (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun hybridFtsQuery (Ljava/lang/String;Ljava/lang/String;[FILjava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun query (Ljava/lang/String;[FILjava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun stats (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun upsert (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/api/storage/VectorStore$DefaultImpls {
+	public static synthetic fun hybridFtsQuery$default (Lcom/ragchat/api/storage/VectorStore;Ljava/lang/String;Ljava/lang/String;[FILjava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun query$default (Lcom/ragchat/api/storage/VectorStore;Ljava/lang/String;[FILjava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class com/ragchat/api/telemetry/TelemetrySink {
+	public abstract fun recordEvent (Ljava/lang/String;Ljava/util/Map;)V
+	public abstract fun recordMetric (Ljava/lang/String;DLjava/util/Map;)V
 }
 

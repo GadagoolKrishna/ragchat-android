@@ -1,0 +1,135 @@
+public final class com/ragchat/testing/FakeAuditSink : com/ragchat/api/audit/AuditSink {
+	public fun <init> ()V
+	public final fun getRecordedAudits ()Ljava/util/concurrent/CopyOnWriteArrayList;
+	public fun recordAudit (Ljava/lang/String;Ljava/util/Map;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/testing/FakeAuthProvider : com/ragchat/api/auth/AuthProvider {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getAuthorizationHeader (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getToken ()Ljava/lang/String;
+	public final fun setToken (Ljava/lang/String;)V
+}
+
+public final class com/ragchat/testing/FakeChunker : com/ragchat/api/ingestion/Chunker {
+	public fun <init> ()V
+	public fun <init> (I)V
+	public synthetic fun <init> (IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun chunk (Lcom/ragchat/api/model/Document;Ljava/util/List;)Ljava/util/List;
+	public final fun getChunkSize ()I
+}
+
+public final class com/ragchat/testing/FakeConsentProvider : com/ragchat/api/governance/ConsentProvider {
+	public fun <init> ()V
+	public fun <init> (Ljava/util/concurrent/ConcurrentHashMap;)V
+	public synthetic fun <init> (Ljava/util/concurrent/ConcurrentHashMap;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun hasConsent (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setConsent (Ljava/lang/String;Z)V
+}
+
+public final class com/ragchat/testing/FakeDocumentParser : com/ragchat/api/parser/DocumentParser {
+	public fun <init> ()V
+	public fun <init> (Ljava/util/Set;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/Set;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getDefaultElements ()Ljava/util/List;
+	public fun parse (Lcom/ragchat/api/parser/DocumentSource;)Lkotlinx/coroutines/flow/Flow;
+	public fun supports (Ljava/lang/String;)Z
+}
+
+public final class com/ragchat/testing/FakeEmbeddingProvider : com/ragchat/api/embedding/EmbeddingProvider {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;IIZ)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;IIZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public fun embed (Ljava/util/List;Lcom/ragchat/api/embedding/EmbeddingTaskType;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getDimensions ()I
+	public fun getMaxInputTokens ()I
+	public fun getModelId ()Ljava/lang/String;
+	public fun getNormalize ()Z
+	public fun getVersion ()Ljava/lang/String;
+}
+
+public final class com/ragchat/testing/FakeKeyProvider : com/ragchat/api/crypto/KeyProvider {
+	public fun <init> ()V
+	public fun <init> ([B)V
+	public synthetic fun <init> ([BILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getKeyMaterial (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setKey (Ljava/lang/String;[B)V
+}
+
+public final class com/ragchat/testing/FakeLlmProvider : com/ragchat/api/llm/LlmProvider {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Lcom/ragchat/api/llm/Availability;Lcom/ragchat/api/llm/LlmCapabilities;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Lcom/ragchat/api/llm/Availability;Lcom/ragchat/api/llm/LlmCapabilities;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun availability (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun close ()V
+	public fun countTokens (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun generate (Lcom/ragchat/api/llm/LlmRequest;)Lkotlinx/coroutines/flow/Flow;
+	public fun getCapabilities ()Lcom/ragchat/api/llm/LlmCapabilities;
+	public final fun getCurrentAvailability ()Lcom/ragchat/api/llm/Availability;
+	public fun getId ()Ljava/lang/String;
+	public final fun getRecordedRequests ()Ljava/util/List;
+	public final fun getResponseTokens ()Ljava/util/List;
+	public final fun setCurrentAvailability (Lcom/ragchat/api/llm/Availability;)V
+}
+
+public final class com/ragchat/testing/FakePiiRedactor : com/ragchat/api/governance/PiiRedactor {
+	public fun <init> ()V
+	public fun redact (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/ragchat/testing/FakePolicyProvider : com/ragchat/api/governance/PolicyProvider {
+	public fun <init> ()V
+	public fun <init> (Lcom/ragchat/api/governance/PolicyDecision;)V
+	public synthetic fun <init> (Lcom/ragchat/api/governance/PolicyDecision;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun evaluate (Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getDefaultDecision ()Lcom/ragchat/api/governance/PolicyDecision;
+	public final fun setDefaultDecision (Lcom/ragchat/api/governance/PolicyDecision;)V
+}
+
+public final class com/ragchat/testing/FakePromptTemplate : com/ragchat/api/prompt/PromptTemplate {
+	public fun <init> ()V
+	public fun buildPrompt (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/ragchat/testing/FakeQueryRewriter : com/ragchat/api/retrieval/QueryRewriter {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun rewrite (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/testing/FakeRagChatLogger : com/ragchat/api/logging/RagChatLogger {
+	public fun <init> ()V
+	public final fun getRecordedLogs ()Ljava/util/concurrent/CopyOnWriteArrayList;
+	public fun log (Lcom/ragchat/api/logging/LogLevel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+}
+
+public final class com/ragchat/testing/FakeReranker : com/ragchat/api/retrieval/Reranker {
+	public fun <init> ()V
+	public fun rerank (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/testing/FakeTelemetrySink : com/ragchat/api/telemetry/TelemetrySink {
+	public fun <init> ()V
+	public final fun getRecordedEvents ()Ljava/util/concurrent/CopyOnWriteArrayList;
+	public final fun getRecordedMetrics ()Ljava/util/concurrent/CopyOnWriteArrayList;
+	public fun recordEvent (Ljava/lang/String;Ljava/util/Map;)V
+	public fun recordMetric (Ljava/lang/String;DLjava/util/Map;)V
+}
+
+public final class com/ragchat/testing/FakeVectorStore : com/ragchat/api/storage/VectorStore {
+	public fun <init> ()V
+	public fun close ()V
+	public fun createCollection (Lcom/ragchat/api/model/CollectionSpec;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun cryptoShred (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteByDocument (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun export (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun hybridFtsQuery (Ljava/lang/String;Ljava/lang/String;[FILjava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun query (Ljava/lang/String;[FILjava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun stats (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun upsert (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+

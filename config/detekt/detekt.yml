@@ -12,6 +12,8 @@ complexity:
     threshold: 60
   LargeClass:
     threshold: 600
+  LongParameterList:
+    constructorThreshold: 25
 
 style:
   active: true
@@ -19,6 +21,8 @@ style:
     active: false
   WildcardImport:
     active: true
+  MaxLineLength:
+    maxLineLength: 140
 
 naming:
   active: true

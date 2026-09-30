@@ -19,6 +19,7 @@ rootProject.name = "ragchat-android"
 
 // Pure Kotlin/JVM modules
 include(":sdk-api")
+include(":sdk-testing")
 include(":sdk-core")
 include(":sdk-ingestion")
 include(":sdk-retrieval")
