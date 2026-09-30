@@ -33,6 +33,7 @@ public final class com/ragchat/storage/StorageManager {
 	public final fun clearAllData (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun deleteDocument (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun exportUserData (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getDatabase ()Lcom/ragchat/storage/db/RagChatDatabase;
 	public final fun readDocument (Ljava/lang/String;Ljava/lang/String;Ljava/io/OutputStream;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun storeDocument (Lcom/ragchat/storage/StoreDocumentParams;Ljava/io/InputStream;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }

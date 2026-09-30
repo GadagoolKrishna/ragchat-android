@@ -1,10 +1,87 @@
+public final class com/ragchat/sdk/EmbeddingScope {
+	public final fun custom (Lcom/ragchat/api/embedding/EmbeddingProvider;)V
+	public final fun getProvider ()Lcom/ragchat/api/embedding/EmbeddingProvider;
+	public final fun onDevice (I)V
+	public static synthetic fun onDevice$default (Lcom/ragchat/sdk/EmbeddingScope;IILjava/lang/Object;)V
+	public final fun setProvider (Lcom/ragchat/api/embedding/EmbeddingProvider;)V
+}
+
+public final class com/ragchat/sdk/GovernanceScope {
+	public final fun consent (Lcom/ragchat/api/governance/ConsentProvider;)V
+	public final fun getConsentProvider ()Lcom/ragchat/api/governance/ConsentProvider;
+	public final fun getPiiRedactor ()Lcom/ragchat/api/governance/PiiRedactor;
+	public final fun pii (Lcom/ragchat/api/governance/PiiRedactor;)V
+	public final fun setConsentProvider (Lcom/ragchat/api/governance/ConsentProvider;)V
+	public final fun setPiiRedactor (Lcom/ragchat/api/governance/PiiRedactor;)V
+}
+
+public final class com/ragchat/sdk/LlmScope {
+	public final fun cloud (Lcom/ragchat/api/llm/LlmProvider;)V
+	public final fun geminiCloud (Lcom/ragchat/api/auth/AuthProvider;Ljava/lang/String;)V
+	public static synthetic fun geminiCloud$default (Lcom/ragchat/sdk/LlmScope;Lcom/ragchat/api/auth/AuthProvider;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun getCloudProvider ()Lcom/ragchat/api/llm/LlmProvider;
+	public final fun getLocalProvider ()Lcom/ragchat/api/llm/LlmProvider;
+	public final fun getRouting ()Lcom/ragchat/api/config/ModelRoutingMode;
+	public final fun local (Lcom/ragchat/api/llm/LlmProvider;)V
+	public static synthetic fun local$default (Lcom/ragchat/sdk/LlmScope;Lcom/ragchat/api/llm/LlmProvider;ILjava/lang/Object;)V
+	public final fun setCloudProvider (Lcom/ragchat/api/llm/LlmProvider;)V
+	public final fun setLocalProvider (Lcom/ragchat/api/llm/LlmProvider;)V
+	public final fun setRouting (Lcom/ragchat/api/config/ModelRoutingMode;)V
+}
+
+public final class com/ragchat/sdk/PolicyScope {
+	public final fun getProvider ()Lcom/ragchat/api/governance/PolicyProvider;
+	public final fun provider (Lcom/ragchat/api/governance/PolicyProvider;)V
+	public final fun setProvider (Lcom/ragchat/api/governance/PolicyProvider;)V
+}
+
 public final class com/ragchat/sdk/RagChat : com/ragchat/api/RagChatApi {
 	public static final field INSTANCE Lcom/ragchat/sdk/RagChat;
+	public final fun builder (Landroid/content/Context;Lkotlin/jvm/functions/Function1;)Lcom/ragchat/sdk/RagChatSdkBuilder;
+	public static synthetic fun builder$default (Lcom/ragchat/sdk/RagChat;Landroid/content/Context;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/ragchat/sdk/RagChatSdkBuilder;
 	public fun getChat ()Lcom/ragchat/api/chat/ChatManager;
+	public final fun getConfig ()Lcom/ragchat/api/config/RagChatConfig;
 	public fun getDocuments ()Lcom/ragchat/api/document/DocumentManager;
 	public fun getVersion ()Ljava/lang/String;
 	public final fun initialize (Landroid/content/Context;Lcom/ragchat/api/config/RagChatConfig;Lcom/ragchat/storage/db/RagChatDatabase;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun initialize$default (Lcom/ragchat/sdk/RagChat;Landroid/content/Context;Lcom/ragchat/api/config/RagChatConfig;Lcom/ragchat/storage/db/RagChatDatabase;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/sdk/RagChatSdkBuilder {
+	public final fun build (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun chunker (Lcom/ragchat/api/ingestion/Chunker;)V
+	public final fun embeddings (Lkotlin/jvm/functions/Function1;)V
+	public final fun governance (Lkotlin/jvm/functions/Function1;)V
+	public final fun llm (Lkotlin/jvm/functions/Function1;)V
+	public final fun parsers ([Lcom/ragchat/api/parser/DocumentParser;)V
+	public final fun policy (Lkotlin/jvm/functions/Function1;)V
+	public final fun storage (Lkotlin/jvm/functions/Function1;)V
+	public final fun telemetry (Lkotlin/jvm/functions/Function1;)V
+	public final fun topK (I)V
+}
+
+public final class com/ragchat/sdk/StorageScope {
+	public final fun database (Lcom/ragchat/storage/db/RagChatDatabase;)V
+	public final fun encrypted ()V
+	public final fun getCustomDatabase ()Lcom/ragchat/storage/db/RagChatDatabase;
+	public final fun getScopeId ()Ljava/lang/String;
+	public final fun setCustomDatabase (Lcom/ragchat/storage/db/RagChatDatabase;)V
+	public final fun setScopeId (Ljava/lang/String;)V
+}
+
+public final class com/ragchat/sdk/TelemetryScope {
+	public final fun audit (Lcom/ragchat/api/audit/AuditSink;)V
+	public final fun getAuditSink ()Lcom/ragchat/api/audit/AuditSink;
+	public final fun getLogger ()Lcom/ragchat/api/logging/RagChatLogger;
+	public final fun getMinLogLevel ()Lcom/ragchat/api/logging/LogLevel;
+	public final fun getTelemetrySink ()Lcom/ragchat/api/telemetry/TelemetrySink;
+	public final fun logging (Lcom/ragchat/api/logging/RagChatLogger;Lcom/ragchat/api/logging/LogLevel;)V
+	public static synthetic fun logging$default (Lcom/ragchat/sdk/TelemetryScope;Lcom/ragchat/api/logging/RagChatLogger;Lcom/ragchat/api/logging/LogLevel;ILjava/lang/Object;)V
+	public final fun setAuditSink (Lcom/ragchat/api/audit/AuditSink;)V
+	public final fun setLogger (Lcom/ragchat/api/logging/RagChatLogger;)V
+	public final fun setMinLogLevel (Lcom/ragchat/api/logging/LogLevel;)V
+	public final fun setTelemetrySink (Lcom/ragchat/api/telemetry/TelemetrySink;)V
+	public final fun telemetry (Lcom/ragchat/api/telemetry/TelemetrySink;)V
 }
 
 public final class com/ragchat/sdk/document/DefaultDocumentManager : com/ragchat/api/document/DocumentManager {

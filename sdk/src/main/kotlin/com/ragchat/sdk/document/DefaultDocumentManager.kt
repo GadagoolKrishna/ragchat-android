@@ -115,8 +115,26 @@ public class DefaultDocumentManager(
     }
 
     override suspend fun list(collectionId: String?): List<Document> {
-        // Query database via storageManager
-        return emptyList()
+        val scopeId = "default_scope"
+        val entities =
+            if (collectionId != null) {
+                storageManager.database.documentDao().getByCollection(scopeId, collectionId)
+            } else {
+                storageManager.database.documentDao().getAllInScope(scopeId)
+            }
+        return entities.map { entity ->
+            Document(
+                id = entity.id,
+                mimeType = entity.mimeType,
+                sizeBytes = entity.sizeBytes,
+                metadata =
+                    mapOf(
+                        "name" to entity.name,
+                        "collectionId" to entity.collectionId,
+                        "createdAt" to entity.createdAt.toString(),
+                    ),
+            )
+        }
     }
 
     override suspend fun status(documentId: String): IngestionProgress? {

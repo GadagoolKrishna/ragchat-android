@@ -35,7 +35,7 @@ public data class StoreDocumentParams(
  */
 public class StorageManager(
     private val context: Context,
-    private val database: RagChatDatabase,
+    public val database: RagChatDatabase,
     private val encryptionManager: EnvelopeEncryptionManager,
     private val documentEncryptor: StreamingDocumentEncryptor = StreamingDocumentEncryptor(),
     private val storeRawDocuments: Boolean = true,

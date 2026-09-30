@@ -1,0 +1,232 @@
+public final class com/ragchat/eval/dataset/GoldenDatasetLoader {
+	public static final field INSTANCE Lcom/ragchat/eval/dataset/GoldenDatasetLoader;
+	public final fun loadDefault ()Lcom/ragchat/eval/model/GoldenDataset;
+	public final fun parse (Ljava/lang/String;)Lcom/ragchat/eval/model/GoldenDataset;
+}
+
+public final class com/ragchat/eval/judge/DeterministicJudge : com/ragchat/eval/judge/LlmJudge {
+	public fun <init> ()V
+	public fun evaluateFaithfulness (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun evaluateRefusal (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun evaluateRelevance (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/eval/judge/JudgeResult {
+	public fun <init> (ZFLjava/lang/String;)V
+	public final fun component1 ()Z
+	public final fun component2 ()F
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (ZFLjava/lang/String;)Lcom/ragchat/eval/judge/JudgeResult;
+	public static synthetic fun copy$default (Lcom/ragchat/eval/judge/JudgeResult;ZFLjava/lang/String;ILjava/lang/Object;)Lcom/ragchat/eval/judge/JudgeResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPassed ()Z
+	public final fun getReasoning ()Ljava/lang/String;
+	public final fun getScore ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/eval/judge/LlmJudge {
+	public abstract fun evaluateFaithfulness (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun evaluateRefusal (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun evaluateRelevance (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/eval/metrics/CaseEvaluationContext {
+	public fun <init> (Lcom/ragchat/eval/model/GoldenQueryCase;Ljava/util/List;Ljava/util/List;Ljava/lang/String;JI)V
+	public synthetic fun <init> (Lcom/ragchat/eval/model/GoldenQueryCase;Ljava/util/List;Ljava/util/List;Ljava/lang/String;JIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/ragchat/eval/model/GoldenQueryCase;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()J
+	public final fun component6 ()I
+	public final fun copy (Lcom/ragchat/eval/model/GoldenQueryCase;Ljava/util/List;Ljava/util/List;Ljava/lang/String;JI)Lcom/ragchat/eval/metrics/CaseEvaluationContext;
+	public static synthetic fun copy$default (Lcom/ragchat/eval/metrics/CaseEvaluationContext;Lcom/ragchat/eval/model/GoldenQueryCase;Ljava/util/List;Ljava/util/List;Ljava/lang/String;JIILjava/lang/Object;)Lcom/ragchat/eval/metrics/CaseEvaluationContext;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCase ()Lcom/ragchat/eval/model/GoldenQueryCase;
+	public final fun getGeneratedAnswer ()Ljava/lang/String;
+	public final fun getLatencyMs ()J
+	public final fun getRetrievedChunks ()Ljava/util/List;
+	public final fun getRetrievedDocIds ()Ljava/util/List;
+	public final fun getTopK ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/eval/metrics/CaseEvaluationResult {
+	public fun <init> (Ljava/lang/String;FFFFFJZLjava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;FFFFFJZLjava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()F
+	public final fun component3 ()F
+	public final fun component4 ()F
+	public final fun component5 ()F
+	public final fun component6 ()F
+	public final fun component7 ()J
+	public final fun component8 ()Z
+	public final fun component9 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;FFFFFJZLjava/util/List;)Lcom/ragchat/eval/metrics/CaseEvaluationResult;
+	public static synthetic fun copy$default (Lcom/ragchat/eval/metrics/CaseEvaluationResult;Ljava/lang/String;FFFFFJZLjava/util/List;ILjava/lang/Object;)Lcom/ragchat/eval/metrics/CaseEvaluationResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCaseId ()Ljava/lang/String;
+	public final fun getContextPrecision ()F
+	public final fun getFailureReasons ()Ljava/util/List;
+	public final fun getFaithfulness ()F
+	public final fun getLatencyMs ()J
+	public final fun getPassed ()Z
+	public final fun getRecallAtK ()F
+	public final fun getRefusalAccuracy ()F
+	public final fun getRelevance ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/eval/metrics/RagEvaluationReport {
+	public fun <init> (IFFFFFJZLjava/util/List;)V
+	public final fun component1 ()I
+	public final fun component2 ()F
+	public final fun component3 ()F
+	public final fun component4 ()F
+	public final fun component5 ()F
+	public final fun component6 ()F
+	public final fun component7 ()J
+	public final fun component8 ()Z
+	public final fun component9 ()Ljava/util/List;
+	public final fun copy (IFFFFFJZLjava/util/List;)Lcom/ragchat/eval/metrics/RagEvaluationReport;
+	public static synthetic fun copy$default (Lcom/ragchat/eval/metrics/RagEvaluationReport;IFFFFFJZLjava/util/List;ILjava/lang/Object;)Lcom/ragchat/eval/metrics/RagEvaluationReport;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllCasesPassed ()Z
+	public final fun getCaseResults ()Ljava/util/List;
+	public final fun getMeanContextPrecision ()F
+	public final fun getMeanFaithfulness ()F
+	public final fun getMeanLatencyMs ()J
+	public final fun getMeanRecallAtK ()F
+	public final fun getMeanRefusalAccuracy ()F
+	public final fun getMeanRelevance ()F
+	public final fun getTotalCases ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/eval/metrics/RagMetricsCalculator {
+	public fun <init> (Lcom/ragchat/eval/judge/LlmJudge;)V
+	public final fun aggregate (Ljava/util/List;)Lcom/ragchat/eval/metrics/RagEvaluationReport;
+	public final fun evaluateCase (Lcom/ragchat/eval/metrics/CaseEvaluationContext;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/eval/model/EvaluationDocument {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/util/Map;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Lcom/ragchat/eval/model/EvaluationDocument;
+	public static synthetic fun copy$default (Lcom/ragchat/eval/model/EvaluationDocument;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lcom/ragchat/eval/model/EvaluationDocument;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContent ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMetadata ()Ljava/util/Map;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/eval/model/ExpectedCitation {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/Integer;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)Lcom/ragchat/eval/model/ExpectedCitation;
+	public static synthetic fun copy$default (Lcom/ragchat/eval/model/ExpectedCitation;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;ILjava/lang/Object;)Lcom/ragchat/eval/model/ExpectedCitation;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChunkId ()Ljava/lang/String;
+	public final fun getDocumentId ()Ljava/lang/String;
+	public final fun getPage ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/eval/model/ExpectedFact {
+	public fun <init> (Ljava/lang/String;Z)V
+	public synthetic fun <init> (Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Z
+	public final fun copy (Ljava/lang/String;Z)Lcom/ragchat/eval/model/ExpectedFact;
+	public static synthetic fun copy$default (Lcom/ragchat/eval/model/ExpectedFact;Ljava/lang/String;ZILjava/lang/Object;)Lcom/ragchat/eval/model/ExpectedFact;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFact ()Ljava/lang/String;
+	public final fun getRequired ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/eval/model/GoldenDataset {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)Lcom/ragchat/eval/model/GoldenDataset;
+	public static synthetic fun copy$default (Lcom/ragchat/eval/model/GoldenDataset;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lcom/ragchat/eval/model/GoldenDataset;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCases ()Ljava/util/List;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getDocuments ()Ljava/util/List;
+	public final fun getVersion ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/eval/model/GoldenQueryCase {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/util/List;Ljava/util/List;ZLjava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/util/List;Ljava/util/List;ZLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Z
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()Z
+	public final fun component8 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/util/List;Ljava/util/List;ZLjava/lang/String;)Lcom/ragchat/eval/model/GoldenQueryCase;
+	public static synthetic fun copy$default (Lcom/ragchat/eval/model/GoldenQueryCase;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/util/List;Ljava/util/List;ZLjava/lang/String;ILjava/lang/Object;)Lcom/ragchat/eval/model/GoldenQueryCase;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategory ()Ljava/lang/String;
+	public final fun getExpectedAnswer ()Ljava/lang/String;
+	public final fun getExpectedCitations ()Ljava/util/List;
+	public final fun getExpectedFacts ()Ljava/util/List;
+	public final fun getExpectedRefusal ()Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getQuestion ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isAnswerable ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/eval/runner/QualityThresholds {
+	public fun <init> ()V
+	public fun <init> (FFFFFJ)V
+	public synthetic fun <init> (FFFFFJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun checkViolations (Lcom/ragchat/eval/metrics/RagEvaluationReport;)Ljava/util/List;
+	public final fun component1 ()F
+	public final fun component2 ()F
+	public final fun component3 ()F
+	public final fun component4 ()F
+	public final fun component5 ()F
+	public final fun component6 ()J
+	public final fun copy (FFFFFJ)Lcom/ragchat/eval/runner/QualityThresholds;
+	public static synthetic fun copy$default (Lcom/ragchat/eval/runner/QualityThresholds;FFFFFJILjava/lang/Object;)Lcom/ragchat/eval/runner/QualityThresholds;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMaxLatencyMs ()J
+	public final fun getMinContextPrecision ()F
+	public final fun getMinFaithfulness ()F
+	public final fun getMinRecallAtK ()F
+	public final fun getMinRefusalAccuracy ()F
+	public final fun getMinRelevance ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+

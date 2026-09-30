@@ -129,6 +129,33 @@ public final class com/ragchat/governance/dsl/PolicyBuilderKt {
 	public static final fun policy (Lkotlin/jvm/functions/Function1;)Ljava/util/List;
 }
 
+public final class com/ragchat/governance/integrity/DeviceIntegrityPolicyProvider : com/ragchat/api/governance/PolicyProvider {
+	public fun <init> (Lcom/ragchat/api/governance/PolicyProvider;Lcom/ragchat/governance/integrity/DeviceIntegrityProvider;ZZ)V
+	public synthetic fun <init> (Lcom/ragchat/api/governance/PolicyProvider;Lcom/ragchat/governance/integrity/DeviceIntegrityProvider;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun evaluate (Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/ragchat/governance/integrity/DeviceIntegrityProvider {
+	public abstract fun fetchVerdict (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/governance/integrity/DeviceIntegrityVerdict {
+	public fun <init> (ZZZLjava/lang/String;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (ZZZLjava/lang/String;)Lcom/ragchat/governance/integrity/DeviceIntegrityVerdict;
+	public static synthetic fun copy$default (Lcom/ragchat/governance/integrity/DeviceIntegrityVerdict;ZZZLjava/lang/String;ILjava/lang/Object;)Lcom/ragchat/governance/integrity/DeviceIntegrityVerdict;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getVerdictSummary ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isAppLicensed ()Z
+	public final fun isDeviceRecognized ()Z
+	public final fun isRooted ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
 public abstract interface class com/ragchat/governance/model/PolicyRule {
 	public abstract fun getCategory ()Ljava/lang/String;
 	public abstract fun getRuleId ()Ljava/lang/String;

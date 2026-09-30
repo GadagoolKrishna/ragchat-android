@@ -30,7 +30,7 @@ public object RagChat : RagChatApi {
     override val documents: DocumentManager
         get() =
             checkNotNull(documentManagerInstance) {
-                "RagChat SDK is not initialized. Call RagChat.initialize(context, config) first."
+                "RagChat SDK is not initialized. Call RagChat.builder(context) { ... }.build() first."
             }
 
     /**
@@ -39,11 +39,38 @@ public object RagChat : RagChatApi {
     override val chat: ChatManager
         get() =
             checkNotNull(chatManagerInstance) {
-                "RagChat SDK is not initialized. Call RagChat.initialize(context, config) first."
+                "RagChat SDK is not initialized. Call RagChat.builder(context) { ... }.build() first."
             }
 
     /**
-     * Initializes the RagChat SDK facade.
+     * Active SDK configuration.
+     */
+    public val config: RagChatConfig?
+        get() = activeConfig
+
+    /**
+     * Fluent type-safe builder DSL constructing and configuring the RagChat SDK facade.
+     *
+     * Example:
+     * ```kotlin
+     * val rag = RagChat.builder(context) {
+     *     llm {
+     *         local(GeminiNano)
+     *         cloud(GeminiApi(authProvider))
+     *         routing = LOCAL_FIRST
+     *     }
+     *     embeddings { onDevice() }
+     *     storage { encrypted() }
+     * }.build()
+     * ```
+     */
+    public fun builder(
+        context: Context,
+        block: RagChatSdkBuilder.() -> Unit = {},
+    ): RagChatSdkBuilder = RagChatSdkBuilder(context).apply(block)
+
+    /**
+     * Initializes the RagChat SDK facade with a pre-built [RagChatConfig].
      */
     public suspend fun initialize(
         context: Context,

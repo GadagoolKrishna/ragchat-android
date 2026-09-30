@@ -24,6 +24,7 @@ include(":sdk-core")
 include(":sdk-ingestion")
 include(":sdk-retrieval")
 include(":sdk-governance")
+include(":eval")
 
 // Android modules
 include(":sdk-android-storage")

@@ -1,0 +1,74 @@
+{
+  "version": "1.0.0",
+  "description": "Standard RagChat Golden Evaluation Dataset",
+  "documents": [
+    {
+      "id": "doc_sec_policy",
+      "title": "Enterprise Security and Access Policy",
+      "content": "All persistent database files must be encrypted at rest using AES-256-GCM. Android Keystore keys must be generated inside the hardware-backed Secure Element or StrongBox when available. Biometric authentication is required for financial exports. Remote data transmission must enforce TLS 1.3.",
+      "metadata": { "category": "security", "author": "Infosec Team" }
+    },
+    {
+      "id": "doc_leave_policy",
+      "title": "Employee Leave and Absence Guidelines",
+      "content": "Full-time employees receive 24 days of paid annual leave per calendar year. Sick leave is granted up to 10 days without a medical certificate. Maternity leave is 26 weeks fully paid. Paternity leave is 2 weeks.",
+      "metadata": { "category": "hr", "author": "People Operations" }
+    },
+    {
+      "id": "doc_travel_reimbursement",
+      "title": "Corporate Travel Reimbursement Standard",
+      "content": "Daily meal allowances are capped at $75 per day within North America and 80 EUR within the European Union. Receipts are mandatory for all expenses exceeding $25. Flight bookings longer than 6 hours are eligible for Premium Economy.",
+      "metadata": { "category": "finance", "author": "Finance Team" }
+    }
+  ],
+  "cases": [
+    {
+      "id": "case_sec_enc",
+      "question": "What encryption standard is required for persistent database files?",
+      "isAnswerable": true,
+      "expectedAnswer": "Persistent database files must be encrypted at rest using AES-256-GCM.",
+      "expectedFacts": [
+        { "fact": "AES-256-GCM encryption", "required": true }
+      ],
+      "expectedCitations": [
+        { "documentId": "doc_sec_policy" }
+      ],
+      "expectedRefusal": false,
+      "category": "factual"
+    },
+    {
+      "id": "case_hr_maternity",
+      "question": "How many weeks of paid maternity leave are provided to employees?",
+      "isAnswerable": true,
+      "expectedAnswer": "Maternity leave is 26 weeks fully paid.",
+      "expectedFacts": [
+        { "fact": "26 weeks fully paid", "required": true }
+      ],
+      "expectedCitations": [
+        { "documentId": "doc_leave_policy" }
+      ],
+      "expectedRefusal": false,
+      "category": "factual"
+    },
+    {
+      "id": "case_unanswerable_ceo_salary",
+      "question": "What is the annual stock compensation package of the CEO?",
+      "isAnswerable": false,
+      "expectedAnswer": null,
+      "expectedFacts": [],
+      "expectedCitations": [],
+      "expectedRefusal": true,
+      "category": "unanswerable"
+    },
+    {
+      "id": "case_unanswerable_moon_orbit",
+      "question": "What is the orbital velocity of the International Space Station around the Moon?",
+      "isAnswerable": false,
+      "expectedAnswer": null,
+      "expectedFacts": [],
+      "expectedCitations": [],
+      "expectedRefusal": true,
+      "category": "unanswerable"
+    }
+  ]
+}
