@@ -170,12 +170,14 @@ public final class com/ragchat/api/config/ModelRoutingMode : java/lang/Enum {
 }
 
 public final class com/ragchat/api/config/RagChatConfig {
+	public final fun getAuditSink ()Lcom/ragchat/api/audit/AuditSink;
 	public final fun getAuthProvider ()Lcom/ragchat/api/auth/AuthProvider;
 	public final fun getChatHistoryStore ()Lcom/ragchat/api/chat/ChatHistoryStore;
 	public final fun getChunker ()Lcom/ragchat/api/ingestion/Chunker;
 	public final fun getCloudLlmProvider ()Lcom/ragchat/api/llm/LlmProvider;
 	public final fun getConsentProvider ()Lcom/ragchat/api/governance/ConsentProvider;
 	public final fun getDefaultTopK ()I
+	public final fun getDeviceContext ()Lcom/ragchat/api/routing/DeviceContext;
 	public final fun getEmbeddingProvider ()Lcom/ragchat/api/embedding/EmbeddingProvider;
 	public final fun getKeyProvider ()Lcom/ragchat/api/crypto/KeyProvider;
 	public final fun getLocalLlmProvider ()Lcom/ragchat/api/llm/LlmProvider;
@@ -197,12 +199,14 @@ public final class com/ragchat/api/config/RagChatConfigBuilder {
 	public fun <init> ()V
 	public final fun addParser (Lcom/ragchat/api/parser/DocumentParser;)Lcom/ragchat/api/config/RagChatConfigBuilder;
 	public final fun build ()Lcom/ragchat/api/config/RagChatConfig;
+	public final fun getAuditSink ()Lcom/ragchat/api/audit/AuditSink;
 	public final fun getAuthProvider ()Lcom/ragchat/api/auth/AuthProvider;
 	public final fun getChatHistoryStore ()Lcom/ragchat/api/chat/ChatHistoryStore;
 	public final fun getChunker ()Lcom/ragchat/api/ingestion/Chunker;
 	public final fun getCloudLlmProvider ()Lcom/ragchat/api/llm/LlmProvider;
 	public final fun getConsentProvider ()Lcom/ragchat/api/governance/ConsentProvider;
 	public final fun getDefaultTopK ()I
+	public final fun getDeviceContext ()Lcom/ragchat/api/routing/DeviceContext;
 	public final fun getEmbeddingProvider ()Lcom/ragchat/api/embedding/EmbeddingProvider;
 	public final fun getKeyProvider ()Lcom/ragchat/api/crypto/KeyProvider;
 	public final fun getLocalLlmProvider ()Lcom/ragchat/api/llm/LlmProvider;
@@ -218,12 +222,14 @@ public final class com/ragchat/api/config/RagChatConfigBuilder {
 	public final fun getRoutingMode ()Lcom/ragchat/api/config/ModelRoutingMode;
 	public final fun getTelemetrySink ()Lcom/ragchat/api/telemetry/TelemetrySink;
 	public final fun getVectorStore ()Lcom/ragchat/api/storage/VectorStore;
+	public final fun setAuditSink (Lcom/ragchat/api/audit/AuditSink;)V
 	public final fun setAuthProvider (Lcom/ragchat/api/auth/AuthProvider;)V
 	public final fun setChatHistoryStore (Lcom/ragchat/api/chat/ChatHistoryStore;)V
 	public final fun setChunker (Lcom/ragchat/api/ingestion/Chunker;)V
 	public final fun setCloudLlmProvider (Lcom/ragchat/api/llm/LlmProvider;)V
 	public final fun setConsentProvider (Lcom/ragchat/api/governance/ConsentProvider;)V
 	public final fun setDefaultTopK (I)V
+	public final fun setDeviceContext (Lcom/ragchat/api/routing/DeviceContext;)V
 	public final fun setEmbeddingProvider (Lcom/ragchat/api/embedding/EmbeddingProvider;)V
 	public final fun setKeyProvider (Lcom/ragchat/api/crypto/KeyProvider;)V
 	public final fun setLocalLlmProvider (Lcom/ragchat/api/llm/LlmProvider;)V
@@ -928,6 +934,107 @@ public abstract interface class com/ragchat/api/retrieval/QueryRewriter {
 
 public abstract interface class com/ragchat/api/retrieval/Reranker {
 	public abstract fun rerank (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/api/routing/BatteryStatus {
+	public fun <init> (IZ)V
+	public final fun component1 ()I
+	public final fun component2 ()Z
+	public final fun copy (IZ)Lcom/ragchat/api/routing/BatteryStatus;
+	public static synthetic fun copy$default (Lcom/ragchat/api/routing/BatteryStatus;IZILjava/lang/Object;)Lcom/ragchat/api/routing/BatteryStatus;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLevelPercent ()I
+	public fun hashCode ()I
+	public final fun isCharging ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/routing/DeviceContext {
+	public fun <init> ()V
+	public fun <init> (Lcom/ragchat/api/routing/DeviceTier;Lcom/ragchat/api/routing/BatteryStatus;Lcom/ragchat/api/routing/ThermalLevel;Lcom/ragchat/api/routing/NetworkType;Z)V
+	public synthetic fun <init> (Lcom/ragchat/api/routing/DeviceTier;Lcom/ragchat/api/routing/BatteryStatus;Lcom/ragchat/api/routing/ThermalLevel;Lcom/ragchat/api/routing/NetworkType;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/ragchat/api/routing/DeviceTier;
+	public final fun component2 ()Lcom/ragchat/api/routing/BatteryStatus;
+	public final fun component3 ()Lcom/ragchat/api/routing/ThermalLevel;
+	public final fun component4 ()Lcom/ragchat/api/routing/NetworkType;
+	public final fun component5 ()Z
+	public final fun copy (Lcom/ragchat/api/routing/DeviceTier;Lcom/ragchat/api/routing/BatteryStatus;Lcom/ragchat/api/routing/ThermalLevel;Lcom/ragchat/api/routing/NetworkType;Z)Lcom/ragchat/api/routing/DeviceContext;
+	public static synthetic fun copy$default (Lcom/ragchat/api/routing/DeviceContext;Lcom/ragchat/api/routing/DeviceTier;Lcom/ragchat/api/routing/BatteryStatus;Lcom/ragchat/api/routing/ThermalLevel;Lcom/ragchat/api/routing/NetworkType;ZILjava/lang/Object;)Lcom/ragchat/api/routing/DeviceContext;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBattery ()Lcom/ragchat/api/routing/BatteryStatus;
+	public final fun getDeviceTier ()Lcom/ragchat/api/routing/DeviceTier;
+	public final fun getNetworkType ()Lcom/ragchat/api/routing/NetworkType;
+	public final fun getThermal ()Lcom/ragchat/api/routing/ThermalLevel;
+	public fun hashCode ()I
+	public final fun isRoaming ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/routing/DeviceTier : java/lang/Enum {
+	public static final field HIGH_END Lcom/ragchat/api/routing/DeviceTier;
+	public static final field LOW_END Lcom/ragchat/api/routing/DeviceTier;
+	public static final field MID_RANGE Lcom/ragchat/api/routing/DeviceTier;
+	public static final field UNKNOWN Lcom/ragchat/api/routing/DeviceTier;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/routing/DeviceTier;
+	public static fun values ()[Lcom/ragchat/api/routing/DeviceTier;
+}
+
+public final class com/ragchat/api/routing/NetworkType : java/lang/Enum {
+	public static final field CELLULAR Lcom/ragchat/api/routing/NetworkType;
+	public static final field ETHERNET Lcom/ragchat/api/routing/NetworkType;
+	public static final field NONE Lcom/ragchat/api/routing/NetworkType;
+	public static final field WIFI Lcom/ragchat/api/routing/NetworkType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/routing/NetworkType;
+	public static fun values ()[Lcom/ragchat/api/routing/NetworkType;
+}
+
+public final class com/ragchat/api/routing/RoutingDecision {
+	public fun <init> (Lcom/ragchat/api/llm/LlmProvider;Ljava/util/List;Z)V
+	public synthetic fun <init> (Lcom/ragchat/api/llm/LlmProvider;Ljava/util/List;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/ragchat/api/llm/LlmProvider;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Z
+	public final fun copy (Lcom/ragchat/api/llm/LlmProvider;Ljava/util/List;Z)Lcom/ragchat/api/routing/RoutingDecision;
+	public static synthetic fun copy$default (Lcom/ragchat/api/routing/RoutingDecision;Lcom/ragchat/api/llm/LlmProvider;Ljava/util/List;ZILjava/lang/Object;)Lcom/ragchat/api/routing/RoutingDecision;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getProvider ()Lcom/ragchat/api/llm/LlmProvider;
+	public final fun getReasonCodes ()Ljava/util/List;
+	public fun hashCode ()I
+	public final fun isFallback ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/routing/RoutingReasonCode : java/lang/Enum {
+	public static final field BATTERY_LOW Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field CIRCUIT_BREAKER_TRIPPED Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field CLOUD_ONLY_CONFIG Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field CONFIDENTIAL_RESTRICTION Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field CONTEXT_WINDOW_EXCEEDED Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field DAILY_TOKEN_QUOTA_EXCEEDED Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field DEFAULT_PREFERENCE Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field DEVICE_TIER_OPTIMAL Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field FALLBACK_ALLOWED Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field LOCAL_ONLY_CONFIG Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field OFFLINE_NETWORK Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field QUERY_COMPLEXITY_HIGH Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field ROAMING_RESTRICTION Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field THERMAL_THROTTLED Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static final field WORKSPACE_RESTRICTION Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/routing/RoutingReasonCode;
+	public static fun values ()[Lcom/ragchat/api/routing/RoutingReasonCode;
+}
+
+public final class com/ragchat/api/routing/ThermalLevel : java/lang/Enum {
+	public static final field CRITICAL Lcom/ragchat/api/routing/ThermalLevel;
+	public static final field MODERATE Lcom/ragchat/api/routing/ThermalLevel;
+	public static final field NORMAL Lcom/ragchat/api/routing/ThermalLevel;
+	public static final field SEVERE Lcom/ragchat/api/routing/ThermalLevel;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/routing/ThermalLevel;
+	public static fun values ()[Lcom/ragchat/api/routing/ThermalLevel;
 }
 
 public final class com/ragchat/api/storage/SearchResult {

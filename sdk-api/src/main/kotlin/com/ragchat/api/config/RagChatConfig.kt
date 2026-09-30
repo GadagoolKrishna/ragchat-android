@@ -1,5 +1,6 @@
 package com.ragchat.api.config
 
+import com.ragchat.api.audit.AuditSink
 import com.ragchat.api.auth.AuthProvider
 import com.ragchat.api.chat.ChatHistoryStore
 import com.ragchat.api.crypto.KeyProvider
@@ -15,6 +16,7 @@ import com.ragchat.api.parser.DocumentParser
 import com.ragchat.api.prompt.PromptTemplate
 import com.ragchat.api.retrieval.QueryRewriter
 import com.ragchat.api.retrieval.Reranker
+import com.ragchat.api.routing.DeviceContext
 import com.ragchat.api.storage.VectorStore
 import com.ragchat.api.telemetry.TelemetrySink
 
@@ -38,11 +40,13 @@ public class RagChatConfig internal constructor(
     public val authProvider: AuthProvider?,
     public val keyProvider: KeyProvider?,
     public val telemetrySink: TelemetrySink?,
+    public val auditSink: AuditSink?,
     public val policyProvider: PolicyProvider?,
     public val consentProvider: ConsentProvider?,
     public val piiRedactor: PiiRedactor?,
     public val logger: RagChatLogger?,
     public val minLogLevel: LogLevel,
+    public val deviceContext: DeviceContext = DeviceContext(),
 )
 
 /**
@@ -130,6 +134,11 @@ public class RagChatConfigBuilder {
     public var telemetrySink: TelemetrySink? = null
 
     /**
+     * Security and compliance audit log sink.
+     */
+    public var auditSink: AuditSink? = null
+
+    /**
      * Safety and compliance policy engine.
      */
     public var policyProvider: PolicyProvider? = null
@@ -153,6 +162,11 @@ public class RagChatConfigBuilder {
      * Minimum log severity recorded by the SDK. Defaults to [LogLevel.INFO].
      */
     public var minLogLevel: LogLevel = LogLevel.INFO
+
+    /**
+     * Dynamic device environmental context.
+     */
+    public var deviceContext: DeviceContext = DeviceContext()
 
     /**
      * Registers a document parser.
@@ -183,10 +197,12 @@ public class RagChatConfigBuilder {
             authProvider = authProvider,
             keyProvider = keyProvider,
             telemetrySink = telemetrySink,
+            auditSink = auditSink,
             policyProvider = policyProvider,
             consentProvider = consentProvider,
             piiRedactor = piiRedactor,
             logger = logger,
             minLogLevel = minLogLevel,
+            deviceContext = deviceContext,
         )
 }

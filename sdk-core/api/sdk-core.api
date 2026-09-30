@@ -70,6 +70,65 @@ public final class com/ragchat/core/prompt/PromptInjectionDefense {
 	public static synthetic fun wrapChunk$default (Lcom/ragchat/core/prompt/PromptInjectionDefense;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
 }
 
+public final class com/ragchat/core/routing/CircuitBreaker {
+	public fun <init> ()V
+	public fun <init> (IJ)V
+	public synthetic fun <init> (IJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getState (Ljava/lang/String;)Lcom/ragchat/core/routing/CircuitState;
+	public final fun recordFailure (Ljava/lang/String;)V
+	public final fun recordSuccess (Ljava/lang/String;)V
+	public final fun resetAll ()V
+}
+
+public final class com/ragchat/core/routing/CircuitState : java/lang/Enum {
+	public static final field CLOSED Lcom/ragchat/core/routing/CircuitState;
+	public static final field HALF_OPEN Lcom/ragchat/core/routing/CircuitState;
+	public static final field OPEN Lcom/ragchat/core/routing/CircuitState;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/core/routing/CircuitState;
+	public static fun values ()[Lcom/ragchat/core/routing/CircuitState;
+}
+
+public final class com/ragchat/core/routing/ModelRouter {
+	public fun <init> (Lcom/ragchat/api/config/RagChatConfig;Lcom/ragchat/core/routing/CircuitBreaker;)V
+	public synthetic fun <init> (Lcom/ragchat/api/config/RagChatConfig;Lcom/ragchat/core/routing/CircuitBreaker;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun route (Lcom/ragchat/core/routing/RouterInput;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/core/routing/QueryComplexityHeuristic {
+	public static final field INSTANCE Lcom/ragchat/core/routing/QueryComplexityHeuristic;
+	public final fun isHighComplexity (Ljava/lang/String;II)Z
+	public static synthetic fun isHighComplexity$default (Lcom/ragchat/core/routing/QueryComplexityHeuristic;Ljava/lang/String;IIILjava/lang/Object;)Z
+}
+
+public final class com/ragchat/core/routing/RouterInput {
+	public fun <init> (Ljava/lang/String;Lcom/ragchat/api/config/ModelRoutingMode;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;IIILcom/ragchat/api/routing/DeviceContext;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/ragchat/api/config/ModelRoutingMode;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;IIILcom/ragchat/api/routing/DeviceContext;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/ragchat/api/config/ModelRoutingMode;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()I
+	public final fun component7 ()I
+	public final fun component8 ()I
+	public final fun component9 ()Lcom/ragchat/api/routing/DeviceContext;
+	public final fun copy (Ljava/lang/String;Lcom/ragchat/api/config/ModelRoutingMode;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;IIILcom/ragchat/api/routing/DeviceContext;)Lcom/ragchat/core/routing/RouterInput;
+	public static synthetic fun copy$default (Lcom/ragchat/core/routing/RouterInput;Ljava/lang/String;Lcom/ragchat/api/config/ModelRoutingMode;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;IIILcom/ragchat/api/routing/DeviceContext;ILjava/lang/Object;)Lcom/ragchat/core/routing/RouterInput;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChunks ()Ljava/util/List;
+	public final fun getDeviceContext ()Lcom/ragchat/api/routing/DeviceContext;
+	public final fun getHistoryTurnCount ()I
+	public final fun getQuery ()Ljava/lang/String;
+	public final fun getRequestedMaxTokens ()I
+	public final fun getRequiredContextTokens ()I
+	public final fun getRoutingMode ()Lcom/ragchat/api/config/ModelRoutingMode;
+	public final fun getSessionId ()Ljava/lang/String;
+	public final fun getWorkspaceId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/ragchat/core/structured/JsonSchemaValidator {
 	public static final field INSTANCE Lcom/ragchat/core/structured/JsonSchemaValidator;
 	public final fun validate (Ljava/lang/String;Ljava/lang/String;)Lcom/ragchat/core/structured/ValidationResult;

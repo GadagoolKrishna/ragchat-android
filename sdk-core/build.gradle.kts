@@ -7,6 +7,7 @@ dependencies {
     implementation(project(":sdk-retrieval"))
     implementation(libs.kotlinx.coroutines.core)
 
+    testImplementation(project(":sdk-governance"))
     testImplementation(project(":sdk-testing"))
     testImplementation(libs.kotlin.test)
     testImplementation(libs.kotlinx.coroutines.test)

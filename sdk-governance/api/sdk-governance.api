@@ -1,5 +1,143 @@
+public final class com/ragchat/governance/DefaultPolicyEngine : com/ragchat/api/governance/PolicyProvider {
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;Lcom/ragchat/governance/quota/TokenUsageTracker;)V
+	public synthetic fun <init> (Ljava/util/List;Lcom/ragchat/governance/quota/TokenUsageTracker;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun evaluate (Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getTokenUsageTracker ()Lcom/ragchat/governance/quota/TokenUsageTracker;
+	public final fun updateRules (Ljava/util/List;)V
+}
+
 public final class com/ragchat/governance/PolicyEngine {
 	public fun <init> ()V
 	public final fun redact (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/ragchat/governance/dsl/PolicyBuilder {
+	public fun <init> ()V
+	public final fun allowedCloudRegions ([Ljava/lang/String;)V
+	public final fun allowedProviders ([Ljava/lang/String;)V
+	public final fun blockCloudWhenRoaming ()V
+	public final fun build ()Ljava/util/List;
+	public final fun denyConfidentialToCloud (Ljava/util/Set;)V
+	public static synthetic fun denyConfidentialToCloud$default (Lcom/ragchat/governance/dsl/PolicyBuilder;Ljava/util/Set;ILjava/lang/Object;)V
+	public final fun disallowCloudForWorkspace ([Ljava/lang/String;)V
+	public final fun maxDailyCloudTokens (J)V
+}
+
+public final class com/ragchat/governance/dsl/PolicyBuilderKt {
+	public static final fun policy (Lkotlin/jvm/functions/Function1;)Ljava/util/List;
+}
+
+public abstract interface class com/ragchat/governance/model/PolicyRule {
+	public abstract fun getCategory ()Ljava/lang/String;
+	public abstract fun getRuleId ()Ljava/lang/String;
+}
+
+public final class com/ragchat/governance/model/PolicyRule$AllowedCloudRegions : com/ragchat/governance/model/PolicyRule {
+	public fun <init> (Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/Set;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)Lcom/ragchat/governance/model/PolicyRule$AllowedCloudRegions;
+	public static synthetic fun copy$default (Lcom/ragchat/governance/model/PolicyRule$AllowedCloudRegions;Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/governance/model/PolicyRule$AllowedCloudRegions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowedRegions ()Ljava/util/Set;
+	public fun getCategory ()Ljava/lang/String;
+	public fun getRuleId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/governance/model/PolicyRule$AllowedProviders : com/ragchat/governance/model/PolicyRule {
+	public fun <init> (Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/Set;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)Lcom/ragchat/governance/model/PolicyRule$AllowedProviders;
+	public static synthetic fun copy$default (Lcom/ragchat/governance/model/PolicyRule$AllowedProviders;Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/governance/model/PolicyRule$AllowedProviders;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowedProviderIds ()Ljava/util/Set;
+	public fun getCategory ()Ljava/lang/String;
+	public fun getRuleId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/governance/model/PolicyRule$BlockCloudWhenRoaming : com/ragchat/governance/model/PolicyRule {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/ragchat/governance/model/PolicyRule$BlockCloudWhenRoaming;
+	public static synthetic fun copy$default (Lcom/ragchat/governance/model/PolicyRule$BlockCloudWhenRoaming;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/governance/model/PolicyRule$BlockCloudWhenRoaming;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getCategory ()Ljava/lang/String;
+	public fun getRuleId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/governance/model/PolicyRule$ConfidentialChunksNeverLeaveDevice : com/ragchat/governance/model/PolicyRule {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/Set;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)Lcom/ragchat/governance/model/PolicyRule$ConfidentialChunksNeverLeaveDevice;
+	public static synthetic fun copy$default (Lcom/ragchat/governance/model/PolicyRule$ConfidentialChunksNeverLeaveDevice;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILjava/lang/Object;)Lcom/ragchat/governance/model/PolicyRule$ConfidentialChunksNeverLeaveDevice;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getCategory ()Ljava/lang/String;
+	public fun getRuleId ()Ljava/lang/String;
+	public final fun getSensitiveLabels ()Ljava/util/Set;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/governance/model/PolicyRule$DisallowCloudForWorkspace : com/ragchat/governance/model/PolicyRule {
+	public fun <init> (Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/Set;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)Lcom/ragchat/governance/model/PolicyRule$DisallowCloudForWorkspace;
+	public static synthetic fun copy$default (Lcom/ragchat/governance/model/PolicyRule$DisallowCloudForWorkspace;Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/governance/model/PolicyRule$DisallowCloudForWorkspace;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getCategory ()Ljava/lang/String;
+	public fun getRuleId ()Ljava/lang/String;
+	public final fun getWorkspaceIds ()Ljava/util/Set;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/governance/model/PolicyRule$MaxCloudTokensPerDay : com/ragchat/governance/model/PolicyRule {
+	public fun <init> (JLjava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (JLjava/lang/String;Ljava/lang/String;)Lcom/ragchat/governance/model/PolicyRule$MaxCloudTokensPerDay;
+	public static synthetic fun copy$default (Lcom/ragchat/governance/model/PolicyRule$MaxCloudTokensPerDay;JLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/governance/model/PolicyRule$MaxCloudTokensPerDay;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getCategory ()Ljava/lang/String;
+	public final fun getMaxTokens ()J
+	public fun getRuleId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/governance/parser/PolicyJsonParser {
+	public static final field INSTANCE Lcom/ragchat/governance/parser/PolicyJsonParser;
+	public final fun parse (Ljava/lang/String;)Ljava/util/List;
+}
+
+public final class com/ragchat/governance/quota/TokenUsageTracker {
+	public fun <init> ()V
+	public final fun getDailyTokenCount ()J
+	public final fun recordTokens (J)J
+	public final fun reset ()V
 }
 
