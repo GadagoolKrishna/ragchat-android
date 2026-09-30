@@ -1,6 +1,0 @@
-public final class com/ragchat/sdk/RagChat : com/ragchat/api/RagChatApi {
-	public static final field INSTANCE Lcom/ragchat/sdk/RagChat;
-	public fun getVersion ()Ljava/lang/String;
-	public final fun initialize ()V
-}
-

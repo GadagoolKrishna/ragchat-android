@@ -1,1 +1,0 @@
-{"@class":"org.jetbrains.dokka.base.templating.AddToSourcesetDependencies","moduleName":"sdk-android-storage","content":{":sdk-android-storage:dokkaHtmlPartial/debug":[],":sdk-android-storage:dokkaHtmlPartial/main":[],":sdk-android-storage:dokkaHtmlPartial/release":[]}}

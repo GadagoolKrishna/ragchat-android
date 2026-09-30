@@ -1,1 +1,0 @@
-{"@class":"org.jetbrains.dokka.base.templating.AddToSourcesetDependencies","moduleName":"sdk-android-embeddings","content":{":sdk-android-embeddings:dokkaHtmlPartial/debug":[],":sdk-android-embeddings:dokkaHtmlPartial/main":[],":sdk-android-embeddings:dokkaHtmlPartial/release":[]}}

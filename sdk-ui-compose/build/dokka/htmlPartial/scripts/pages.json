@@ -1,1 +1,0 @@
-{"@class":"org.jetbrains.dokka.base.templating.AddToSearch","moduleName":"sdk-ui-compose","elements":[{"name":"fun ChatView(title: String)","description":"com.ragchat.ui.compose.ChatView","location":"com.ragchat.ui.compose/-chat-view.html","searchKeys":["ChatView","fun ChatView(title: String)","com.ragchat.ui.compose.ChatView"]}]}

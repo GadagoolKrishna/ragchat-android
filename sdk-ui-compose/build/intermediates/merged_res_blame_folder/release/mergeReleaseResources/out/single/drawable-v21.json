@@ -1,6 +1,0 @@
-[
-    {
-        "merged": "com.ragchat.ui.compose.sdk-ui-compose-release-41:/drawable-v21/notification_action_background.xml",
-        "source": "com.ragchat.ui.compose.sdk-ui-compose-core-1.13.1-9:/drawable-v21/notification_action_background.xml"
-    }
-]

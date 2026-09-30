@@ -1,1 +1,0 @@
-{"@class":"org.jetbrains.dokka.base.templating.AddToSourcesetDependencies","moduleName":"sdk-android-llm-local","content":{":sdk-android-llm-local:dokkaHtmlPartial/debug":[],":sdk-android-llm-local:dokkaHtmlPartial/main":[],":sdk-android-llm-local:dokkaHtmlPartial/release":[]}}

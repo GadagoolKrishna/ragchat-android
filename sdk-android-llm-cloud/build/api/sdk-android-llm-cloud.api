@@ -1,5 +1,0 @@
-public final class com/ragchat/llm/cloud/CloudLlmProvider {
-	public fun <init> ()V
-	public final fun getModuleName ()Ljava/lang/String;
-}
-

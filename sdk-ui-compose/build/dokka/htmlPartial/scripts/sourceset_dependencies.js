@@ -1,1 +1,0 @@
-{"@class":"org.jetbrains.dokka.base.templating.AddToSourcesetDependencies","moduleName":"sdk-ui-compose","content":{":sdk-ui-compose:dokkaHtmlPartial/debug":[],":sdk-ui-compose:dokkaHtmlPartial/main":[],":sdk-ui-compose:dokkaHtmlPartial/release":[]}}
