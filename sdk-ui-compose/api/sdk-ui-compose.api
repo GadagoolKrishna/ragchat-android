@@ -1,4 +1,419 @@
+public final class com/ragchat/ui/compose/ChatPreviewsKt {
+	public static final fun PreviewChatScreen (Landroidx/compose/runtime/Composer;I)V
+	public static final fun PreviewDocumentManager (Landroidx/compose/runtime/Composer;I)V
+	public static final fun PreviewEmptyState (Landroidx/compose/runtime/Composer;I)V
+	public static final fun PreviewInputBar (Landroidx/compose/runtime/Composer;I)V
+	public static final fun PreviewMessageBubbleDark (Landroidx/compose/runtime/Composer;I)V
+	public static final fun PreviewMessageBubbleLight (Landroidx/compose/runtime/Composer;I)V
+}
+
 public final class com/ragchat/ui/compose/ChatViewKt {
-	public static final fun ChatView (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
+	public static final fun ChatView (Lcom/ragchat/ui/compose/viewmodel/ChatViewModel;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/ragchat/ui/compose/ComposableSingletons$ChatPreviewsKt {
+	public static final field INSTANCE Lcom/ragchat/ui/compose/ComposableSingletons$ChatPreviewsKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function2;
+	public static field lambda-2 Lkotlin/jvm/functions/Function2;
+	public static field lambda-3 Lkotlin/jvm/functions/Function2;
+	public static field lambda-4 Lkotlin/jvm/functions/Function2;
+	public fun <init> ()V
+	public final fun getLambda-1$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-2$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-3$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-4$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/ragchat/ui/compose/components/ChatScreenKt {
+	public static final fun ChatScreen (Lcom/ragchat/ui/compose/state/ChatUiState;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class com/ragchat/ui/compose/components/CitationChipKt {
+	public static final fun CitationChip (Lcom/ragchat/api/model/Citation;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/ragchat/ui/compose/components/ComposableSingletons$ChatScreenKt {
+	public static final field INSTANCE Lcom/ragchat/ui/compose/components/ComposableSingletons$ChatScreenKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function2;
+	public static field lambda-2 Lkotlin/jvm/functions/Function2;
+	public fun <init> ()V
+	public final fun getLambda-1$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-2$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/ragchat/ui/compose/components/ComposableSingletons$DocumentManagerScreenKt {
+	public static final field INSTANCE Lcom/ragchat/ui/compose/components/ComposableSingletons$DocumentManagerScreenKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function2;
+	public static field lambda-2 Lkotlin/jvm/functions/Function2;
+	public static field lambda-3 Lkotlin/jvm/functions/Function3;
+	public static field lambda-4 Lkotlin/jvm/functions/Function3;
+	public static field lambda-5 Lkotlin/jvm/functions/Function3;
+	public static field lambda-6 Lkotlin/jvm/functions/Function2;
+	public static field lambda-7 Lkotlin/jvm/functions/Function2;
+	public static field lambda-8 Lkotlin/jvm/functions/Function2;
+	public fun <init> ()V
+	public final fun getLambda-1$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-2$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-3$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-4$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-5$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-6$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-7$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-8$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/ragchat/ui/compose/components/ComposableSingletons$EmptyAndErrorStatesKt {
+	public static final field INSTANCE Lcom/ragchat/ui/compose/components/ComposableSingletons$EmptyAndErrorStatesKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function3;
+	public static field lambda-2 Lkotlin/jvm/functions/Function3;
+	public fun <init> ()V
+	public final fun getLambda-1$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-2$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class com/ragchat/ui/compose/components/ComposableSingletons$FeedbackControlsKt {
+	public static final field INSTANCE Lcom/ragchat/ui/compose/components/ComposableSingletons$FeedbackControlsKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function2;
+	public static field lambda-2 Lkotlin/jvm/functions/Function2;
+	public static field lambda-3 Lkotlin/jvm/functions/Function2;
+	public fun <init> ()V
+	public final fun getLambda-1$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-2$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-3$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/ragchat/ui/compose/components/ComposableSingletons$InputBarKt {
+	public static final field INSTANCE Lcom/ragchat/ui/compose/components/ComposableSingletons$InputBarKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function2;
+	public static field lambda-2 Lkotlin/jvm/functions/Function2;
+	public static field lambda-3 Lkotlin/jvm/functions/Function2;
+	public static field lambda-4 Lkotlin/jvm/functions/Function2;
+	public fun <init> ()V
+	public final fun getLambda-1$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-2$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-3$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-4$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/ragchat/ui/compose/components/ComposableSingletons$ModelStatusBannerKt {
+	public static final field INSTANCE Lcom/ragchat/ui/compose/components/ComposableSingletons$ModelStatusBannerKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function3;
+	public fun <init> ()V
+	public final fun getLambda-1$sdk_ui_compose_release ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class com/ragchat/ui/compose/components/DocumentManagerScreenKt {
+	public static final fun DocumentManagerScreen (Lcom/ragchat/ui/compose/state/DocumentManagerUiState;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/ragchat/ui/compose/components/EmptyAndErrorStatesKt {
+	public static final fun EmptyState (Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+	public static final fun ErrorState (Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/ragchat/ui/compose/components/FeedbackControlsKt {
+	public static final fun FeedbackControls (Lcom/ragchat/ui/compose/state/MessageFeedbackState;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/ragchat/ui/compose/components/InputBarKt {
+	public static final fun InputBar (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;ZLandroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/ragchat/ui/compose/components/MessageBubbleKt {
+	public static final fun MessageBubble (Lcom/ragchat/ui/compose/state/UiChatMessage;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/ragchat/ui/compose/components/MessageListKt {
+	public static final fun MessageList (Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/lazy/LazyListState;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/ragchat/ui/compose/components/ModelStatusBannerKt {
+	public static final fun ModelStatusBanner (Lcom/ragchat/ui/compose/state/ModelOriginBadge;ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/ragchat/ui/compose/components/SourceViewerSheetKt {
+	public static final fun SourceViewerSheet (Lcom/ragchat/api/model/Citation;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class com/ragchat/ui/compose/state/ChatUiState {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;ZLjava/lang/String;Lcom/ragchat/api/model/Citation;Ljava/lang/String;ZLcom/ragchat/ui/compose/state/ModelOriginBadge;)V
+	public synthetic fun <init> (Ljava/util/List;ZLjava/lang/String;Lcom/ragchat/api/model/Citation;Ljava/lang/String;ZLcom/ragchat/ui/compose/state/ModelOriginBadge;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Z
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lcom/ragchat/api/model/Citation;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Z
+	public final fun component7 ()Lcom/ragchat/ui/compose/state/ModelOriginBadge;
+	public final fun copy (Ljava/util/List;ZLjava/lang/String;Lcom/ragchat/api/model/Citation;Ljava/lang/String;ZLcom/ragchat/ui/compose/state/ModelOriginBadge;)Lcom/ragchat/ui/compose/state/ChatUiState;
+	public static synthetic fun copy$default (Lcom/ragchat/ui/compose/state/ChatUiState;Ljava/util/List;ZLjava/lang/String;Lcom/ragchat/api/model/Citation;Ljava/lang/String;ZLcom/ragchat/ui/compose/state/ModelOriginBadge;ILjava/lang/Object;)Lcom/ragchat/ui/compose/state/ChatUiState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActiveCitation ()Lcom/ragchat/api/model/Citation;
+	public final fun getActiveError ()Ljava/lang/String;
+	public final fun getCurrentOrigin ()Lcom/ragchat/ui/compose/state/ModelOriginBadge;
+	public final fun getInputText ()Ljava/lang/String;
+	public final fun getMessages ()Ljava/util/List;
+	public final fun getRequiresConsentPrompt ()Z
+	public fun hashCode ()I
+	public final fun isGenerating ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/ui/compose/state/DocumentManagerUiState {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;ZLjava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;ZLjava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Z
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;ZLjava/lang/String;Ljava/lang/String;)Lcom/ragchat/ui/compose/state/DocumentManagerUiState;
+	public static synthetic fun copy$default (Lcom/ragchat/ui/compose/state/DocumentManagerUiState;Ljava/util/List;ZLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/ui/compose/state/DocumentManagerUiState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDeleteConfirmationDocId ()Ljava/lang/String;
+	public final fun getDocuments ()Ljava/util/List;
+	public final fun getSearchQuery ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isUploading ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/ui/compose/state/DocumentStatus : java/lang/Enum {
+	public static final field CHUNKING Lcom/ragchat/ui/compose/state/DocumentStatus;
+	public static final field EMBEDDING Lcom/ragchat/ui/compose/state/DocumentStatus;
+	public static final field FAILED Lcom/ragchat/ui/compose/state/DocumentStatus;
+	public static final field INDEXED Lcom/ragchat/ui/compose/state/DocumentStatus;
+	public static final field PARSING Lcom/ragchat/ui/compose/state/DocumentStatus;
+	public static final field QUEUED Lcom/ragchat/ui/compose/state/DocumentStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/ui/compose/state/DocumentStatus;
+	public static fun values ()[Lcom/ragchat/ui/compose/state/DocumentStatus;
+}
+
+public final class com/ragchat/ui/compose/state/DocumentUiItem {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLcom/ragchat/ui/compose/state/DocumentStatus;FLjava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLcom/ragchat/ui/compose/state/DocumentStatus;FLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()J
+	public final fun component5 ()Lcom/ragchat/ui/compose/state/DocumentStatus;
+	public final fun component6 ()F
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLcom/ragchat/ui/compose/state/DocumentStatus;FLjava/lang/String;)Lcom/ragchat/ui/compose/state/DocumentUiItem;
+	public static synthetic fun copy$default (Lcom/ragchat/ui/compose/state/DocumentUiItem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLcom/ragchat/ui/compose/state/DocumentStatus;FLjava/lang/String;ILjava/lang/Object;)Lcom/ragchat/ui/compose/state/DocumentUiItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getErrorMessage ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMimeType ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getProgressFraction ()F
+	public final fun getSizeBytes ()J
+	public final fun getStatus ()Lcom/ragchat/ui/compose/state/DocumentStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/ui/compose/state/MessageDeliveryStatus : java/lang/Enum {
+	public static final field COMPLETE Lcom/ragchat/ui/compose/state/MessageDeliveryStatus;
+	public static final field FAILED Lcom/ragchat/ui/compose/state/MessageDeliveryStatus;
+	public static final field PENDING Lcom/ragchat/ui/compose/state/MessageDeliveryStatus;
+	public static final field STREAMING Lcom/ragchat/ui/compose/state/MessageDeliveryStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/ui/compose/state/MessageDeliveryStatus;
+	public static fun values ()[Lcom/ragchat/ui/compose/state/MessageDeliveryStatus;
+}
+
+public final class com/ragchat/ui/compose/state/MessageFeedbackState : java/lang/Enum {
+	public static final field HELPFUL Lcom/ragchat/ui/compose/state/MessageFeedbackState;
+	public static final field NONE Lcom/ragchat/ui/compose/state/MessageFeedbackState;
+	public static final field UNHELPFUL Lcom/ragchat/ui/compose/state/MessageFeedbackState;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/ui/compose/state/MessageFeedbackState;
+	public static fun values ()[Lcom/ragchat/ui/compose/state/MessageFeedbackState;
+}
+
+public final class com/ragchat/ui/compose/state/MessageRole : java/lang/Enum {
+	public static final field ASSISTANT Lcom/ragchat/ui/compose/state/MessageRole;
+	public static final field SYSTEM Lcom/ragchat/ui/compose/state/MessageRole;
+	public static final field USER Lcom/ragchat/ui/compose/state/MessageRole;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/ui/compose/state/MessageRole;
+	public static fun values ()[Lcom/ragchat/ui/compose/state/MessageRole;
+}
+
+public final class com/ragchat/ui/compose/state/ModelOriginBadge : java/lang/Enum {
+	public static final field ENTERPRISE_CLOUD Lcom/ragchat/ui/compose/state/ModelOriginBadge;
+	public static final field NONE Lcom/ragchat/ui/compose/state/ModelOriginBadge;
+	public static final field ON_DEVICE Lcom/ragchat/ui/compose/state/ModelOriginBadge;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/ui/compose/state/ModelOriginBadge;
+	public static fun values ()[Lcom/ragchat/ui/compose/state/ModelOriginBadge;
+}
+
+public final class com/ragchat/ui/compose/state/UiChatMessage {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Lcom/ragchat/ui/compose/state/MessageRole;Ljava/lang/String;Ljava/util/List;Lcom/ragchat/ui/compose/state/MessageDeliveryStatus;Lcom/ragchat/ui/compose/state/ModelOriginBadge;Lcom/ragchat/ui/compose/state/MessageFeedbackState;JLjava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/ragchat/ui/compose/state/MessageRole;Ljava/lang/String;Ljava/util/List;Lcom/ragchat/ui/compose/state/MessageDeliveryStatus;Lcom/ragchat/ui/compose/state/ModelOriginBadge;Lcom/ragchat/ui/compose/state/MessageFeedbackState;JLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/ragchat/ui/compose/state/MessageRole;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Lcom/ragchat/ui/compose/state/MessageDeliveryStatus;
+	public final fun component6 ()Lcom/ragchat/ui/compose/state/ModelOriginBadge;
+	public final fun component7 ()Lcom/ragchat/ui/compose/state/MessageFeedbackState;
+	public final fun component8 ()J
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Lcom/ragchat/ui/compose/state/MessageRole;Ljava/lang/String;Ljava/util/List;Lcom/ragchat/ui/compose/state/MessageDeliveryStatus;Lcom/ragchat/ui/compose/state/ModelOriginBadge;Lcom/ragchat/ui/compose/state/MessageFeedbackState;JLjava/lang/String;)Lcom/ragchat/ui/compose/state/UiChatMessage;
+	public static synthetic fun copy$default (Lcom/ragchat/ui/compose/state/UiChatMessage;Ljava/lang/String;Lcom/ragchat/ui/compose/state/MessageRole;Ljava/lang/String;Ljava/util/List;Lcom/ragchat/ui/compose/state/MessageDeliveryStatus;Lcom/ragchat/ui/compose/state/ModelOriginBadge;Lcom/ragchat/ui/compose/state/MessageFeedbackState;JLjava/lang/String;ILjava/lang/Object;)Lcom/ragchat/ui/compose/state/UiChatMessage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCitations ()Ljava/util/List;
+	public final fun getContent ()Ljava/lang/String;
+	public final fun getErrorMessage ()Ljava/lang/String;
+	public final fun getFeedbackState ()Lcom/ragchat/ui/compose/state/MessageFeedbackState;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getOriginBadge ()Lcom/ragchat/ui/compose/state/ModelOriginBadge;
+	public final fun getRole ()Lcom/ragchat/ui/compose/state/MessageRole;
+	public final fun getStatus ()Lcom/ragchat/ui/compose/state/MessageDeliveryStatus;
+	public final fun getTimestampMs ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/ui/compose/theme/RagChatColors {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJJJJJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component10-0d7_KjU ()J
+	public final fun component11-0d7_KjU ()J
+	public final fun component12-0d7_KjU ()J
+	public final fun component13-0d7_KjU ()J
+	public final fun component2-0d7_KjU ()J
+	public final fun component3-0d7_KjU ()J
+	public final fun component4-0d7_KjU ()J
+	public final fun component5-0d7_KjU ()J
+	public final fun component6-0d7_KjU ()J
+	public final fun component7-0d7_KjU ()J
+	public final fun component8-0d7_KjU ()J
+	public final fun component9-0d7_KjU ()J
+	public final fun copy-daRQuJA (JJJJJJJJJJJJJ)Lcom/ragchat/ui/compose/theme/RagChatColors;
+	public static synthetic fun copy-daRQuJA$default (Lcom/ragchat/ui/compose/theme/RagChatColors;JJJJJJJJJJJJJILjava/lang/Object;)Lcom/ragchat/ui/compose/theme/RagChatColors;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssistantBubbleBackground-0d7_KjU ()J
+	public final fun getAssistantBubbleContent-0d7_KjU ()J
+	public final fun getCitationChipBackground-0d7_KjU ()J
+	public final fun getCitationChipContent-0d7_KjU ()J
+	public final fun getCodeBlockBackground-0d7_KjU ()J
+	public final fun getCodeBlockContent-0d7_KjU ()J
+	public final fun getModelBadgeCloud-0d7_KjU ()J
+	public final fun getModelBadgeOnDevice-0d7_KjU ()J
+	public final fun getStatusBannerBackground-0d7_KjU ()J
+	public final fun getTableBorder-0d7_KjU ()J
+	public final fun getTableHeaderBackground-0d7_KjU ()J
+	public final fun getUserBubbleBackground-0d7_KjU ()J
+	public final fun getUserBubbleContent-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/ui/compose/theme/RagChatSpacing {
+	public static final field $stable I
+	public synthetic fun <init> (FFFFFFFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFFFFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4-D9Ej5fM ()F
+	public final fun component5-D9Ej5fM ()F
+	public final fun component6-D9Ej5fM ()F
+	public final fun component7-D9Ej5fM ()F
+	public final fun copy-oRJhP44 (FFFFFFF)Lcom/ragchat/ui/compose/theme/RagChatSpacing;
+	public static synthetic fun copy-oRJhP44$default (Lcom/ragchat/ui/compose/theme/RagChatSpacing;FFFFFFFILjava/lang/Object;)Lcom/ragchat/ui/compose/theme/RagChatSpacing;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDefault-D9Ej5fM ()F
+	public final fun getExtraLarge-D9Ej5fM ()F
+	public final fun getExtraSmall-D9Ej5fM ()F
+	public final fun getLarge-D9Ej5fM ()F
+	public final fun getMedium-D9Ej5fM ()F
+	public final fun getMinTouchTarget-D9Ej5fM ()F
+	public final fun getSmall-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/ui/compose/theme/RagChatTheme {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/ragchat/ui/compose/theme/RagChatTheme;
+	public final fun getColors (Landroidx/compose/runtime/Composer;I)Lcom/ragchat/ui/compose/theme/RagChatColors;
+	public final fun getSpacing (Landroidx/compose/runtime/Composer;I)Lcom/ragchat/ui/compose/theme/RagChatSpacing;
+	public final fun getTypography (Landroidx/compose/runtime/Composer;I)Lcom/ragchat/ui/compose/theme/RagChatTypography;
+}
+
+public final class com/ragchat/ui/compose/theme/RagChatThemeKt {
+	public static final fun RagChatTheme (ZLcom/ragchat/ui/compose/theme/RagChatColors;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun getLocalRagChatColors ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun getLocalRagChatSpacing ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun getLocalRagChatTypography ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/ragchat/ui/compose/theme/RagChatTypography {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;)V
+	public final fun component1 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component2 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component3 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun component4 ()Landroidx/compose/ui/text/TextStyle;
+	public final fun copy (Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;)Lcom/ragchat/ui/compose/theme/RagChatTypography;
+	public static synthetic fun copy$default (Lcom/ragchat/ui/compose/theme/RagChatTypography;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;ILjava/lang/Object;)Lcom/ragchat/ui/compose/theme/RagChatTypography;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCitationText ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getCodeBlock ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getModelBadge ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getTableText ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public class com/ragchat/ui/compose/viewmodel/ChatViewModel : androidx/lifecycle/ViewModel {
+	public static final field $stable I
+	public fun <init> (Lcom/ragchat/api/chat/ChatManager;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Lcom/ragchat/api/chat/ChatManager;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun dismissError ()V
+	public final fun getUiState ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun grantConsent ()V
+	public final fun onInputTextChanged (Ljava/lang/String;)V
+	public final fun provideFeedback (Ljava/lang/String;Lcom/ragchat/ui/compose/state/MessageFeedbackState;)V
+	public final fun selectCitation (Lcom/ragchat/api/model/Citation;)V
+	public final fun sendMessage (Ljava/lang/String;)V
+	public final fun stopGenerating ()V
+}
+
+public final class com/ragchat/ui/compose/viewmodel/ChatViewModelFactory : androidx/lifecycle/ViewModelProvider$Factory {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function0;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function0;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun create (Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
+}
+
+public class com/ragchat/ui/compose/viewmodel/DocumentManagerViewModel : androidx/lifecycle/ViewModel {
+	public static final field $stable I
+	public fun <init> (Lcom/ragchat/api/document/DocumentManager;Ljava/lang/String;)V
+	public synthetic fun <init> (Lcom/ragchat/api/document/DocumentManager;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun confirmDelete (Ljava/lang/String;)V
+	public final fun dismissDeleteDialog ()V
+	public final fun getUiState ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun loadDocuments ()V
+	public final fun requestDelete (Ljava/lang/String;)V
+}
+
+public final class com/ragchat/ui/compose/viewmodel/DocumentManagerViewModelFactory : androidx/lifecycle/ViewModelProvider$Factory {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function0;Ljava/lang/String;)V
+	public synthetic fun <init> (Lkotlin/jvm/functions/Function0;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun create (Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 }
 

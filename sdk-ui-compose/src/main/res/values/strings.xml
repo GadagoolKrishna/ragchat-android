@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App & General -->
+    <string name="ragchat_app_name">RagChat</string>
+    <string name="ragchat_close">Close</string>
+    <string name="ragchat_retry">Retry</string>
+    <string name="ragchat_cancel">Cancel</string>
+    <string name="ragchat_delete">Delete</string>
+
+    <!-- Chat & Input -->
+    <string name="ragchat_input_hint">Ask a question about your documents…</string>
+    <string name="ragchat_send_button_description">Send message</string>
+    <string name="ragchat_attach_button_description">Attach document</string>
+    <string name="ragchat_stop_button_description">Stop response generation</string>
+
+    <!-- Model Status -->
+    <string name="ragchat_model_on_device">Answered On-Device</string>
+    <string name="ragchat_model_cloud">Answered via Enterprise Cloud</string>
+    <string name="ragchat_consent_required_banner">Cloud processing consent required for this workspace.</string>
+    <string name="ragchat_grant_consent">Grant</string>
+
+    <!-- Citations & Sources -->
+    <string name="ragchat_citation_prefix">Source</string>
+    <string name="ragchat_citation_page_format">Page %1$d</string>
+    <string name="ragchat_source_viewer_title">Grounding Source</string>
+    <string name="ragchat_chunk_highlighted_label">Retrieved Excerpt</string>
+
+    <!-- Feedback -->
+    <string name="ragchat_feedback_helpful">Helpful response</string>
+    <string name="ragchat_feedback_unhelpful">Not helpful</string>
+    <string name="ragchat_feedback_report">Report issue</string>
+    <string name="ragchat_feedback_submitted">Thank you for your feedback!</string>
+
+    <!-- Empty & Error States -->
+    <string name="ragchat_empty_title">How can I help you today?</string>
+    <string name="ragchat_empty_subtitle">Ask questions to search, analyze, and synthesize across your indexed knowledge documents.</string>
+    <string name="ragchat_suggestion_summarize">Summarize uploaded documents</string>
+    <string name="ragchat_suggestion_key_facts">Find key dates and metrics</string>
+    <string name="ragchat_error_title">Unable to generate response</string>
+
+    <!-- Document Manager -->
+    <string name="ragchat_doc_manager_title">Document Library</string>
+    <string name="ragchat_upload_document">Upload Document</string>
+    <string name="ragchat_status_indexing">Indexing…</string>
+    <string name="ragchat_status_ready">Ready</string>
+    <string name="ragchat_status_failed">Failed</string>
+    <string name="ragchat_confirm_delete">Delete this document and all indexed vectors?</string>
+</resources>

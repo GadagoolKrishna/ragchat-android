@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App & General -->
+    <string name="ragchat_app_name">ರ‍್ಯಾಗ್‌ಚಾಟ್</string>
+    <string name="ragchat_close">ಮುಚ್ಚು</string>
+    <string name="ragchat_retry">ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</string>
+    <string name="ragchat_cancel">ರದ್ದುಮಾಡಿ</string>
+    <string name="ragchat_delete">ಅಳಿಸಿ</string>
+
+    <!-- Chat & Input -->
+    <string name="ragchat_input_hint">ನಿಮ್ಮ ದಾಖಲೆಗಳ ಬಗ್ಗೆ ಪ್ರಶ್ನೆ ಕೇಳಿ…</string>
+    <string name="ragchat_send_button_description">ಸಂದೇಶ ಕಳುಹಿಸಿ</string>
+    <string name="ragchat_attach_button_description">ದಾಖಲೆ ಲಗತ್ತಿಸಿ</string>
+    <string name="ragchat_stop_button_description">ಉತ್ತರ ರಚನೆ ನಿಲ್ಲಿಸಿ</string>
+
+    <!-- Model Status -->
+    <string name="ragchat_model_on_device">ಸಾಧನದಲ್ಲೇ ಉತ್ತರಿಸಲಾಗಿದೆ</string>
+    <string name="ragchat_model_cloud">ಕ್ಲೌಡ್ ಮೂಲಕ ಉತ್ತರಿಸಲಾಗಿದೆ</string>
+    <string name="ragchat_consent_required_banner">ಕ್ಲೌಡ್ ಪ್ರಕ್ರಿಯೆಗಾಗಿ ಸಮ್ಮತಿ ಅಗತ್ಯವಿದೆ.</string>
+    <string name="ragchat_grant_consent">ಸಮ್ಮತಿಸಿ</string>
+
+    <!-- Citations & Sources -->
+    <string name="ragchat_citation_prefix">ಮೂಲ</string>
+    <string name="ragchat_citation_page_format">ಪುಟ %1$d</string>
+    <string name="ragchat_source_viewer_title">ಉಲ್ಲೇಖದ ಮೂಲ</string>
+    <string name="ragchat_chunk_highlighted_label">ಆಯ್ದ ಭಾಗ</string>
+
+    <!-- Feedback -->
+    <string name="ragchat_feedback_helpful">ಸಹಾಯಕವಾಗಿದೆ</string>
+    <string name="ragchat_feedback_unhelpful">ಸಹಾಯಕವಾಗಿಲ್ಲ</string>
+    <string name="ragchat_feedback_report">ಸಮಸ್ಯೆ ವರದಿ ಮಾಡಿ</string>
+    <string name="ragchat_feedback_submitted">ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆಗೆ ಧನ್ಯವಾದಗಳು!</string>
+
+    <!-- Empty & Error States -->
+    <string name="ragchat_empty_title">ಇಂದು ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಲಿ?</string>
+    <string name="ragchat_empty_subtitle">ನಿಮ್ಮ ದಾಖಲೆಗಳಿಂದ ಮಾಹಿತಿ ಹುಡುಕಲು ಮತ್ತು ವಿಶ್ಲೇಷಿಸಲು ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಿ.</string>
+    <string name="ragchat_suggestion_summarize">ದಾಖಲೆಗಳ ಸಾರಾಂಶ ಪಡೆಯಿರಿ</string>
+    <string name="ragchat_suggestion_key_facts">ಮುಖ್ಯ ದಿನಾಂಕಗಳನ್ನು ಹುಡುಕಿ</string>
+    <string name="ragchat_error_title">ಉತ್ತರ ರಚಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ</string>
+
+    <!-- Document Manager -->
+    <string name="ragchat_doc_manager_title">ದಾಖಲೆಗಳ ಸಂಗ್ರಹ</string>
+    <string name="ragchat_upload_document">ದಾಖಲೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ</string>
+    <string name="ragchat_status_indexing">ಇಂಡೆಕ್ಸಿಂಗ್ ನಡೆಯುತ್ತಿದೆ…</string>
+    <string name="ragchat_status_ready">ಸಿದ್ಧವಾಗಿದೆ</string>
+    <string name="ragchat_status_failed">ವಿಫಲವಾಗಿದೆ</string>
+    <string name="ragchat_confirm_delete">ಈ ದಾಖಲೆಯನ್ನು ಅಳಿಸಬೇಕೆ?</string>
+</resources>
