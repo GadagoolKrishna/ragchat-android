@@ -4,8 +4,9 @@ plugins {
 
 dependencies {
     api(project(":sdk-api"))
-    implementation(libs.kotlinx.coroutines.core)
+    api(libs.kotlinx.coroutines.core)
+    api(libs.junit)
+    api(libs.kotlinx.coroutines.test)
 
     testImplementation(libs.kotlin.test)
-    testImplementation(libs.kotlinx.coroutines.test)
 }

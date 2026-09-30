@@ -20,4 +20,12 @@ dependencies {
     api(project(":sdk-android-models"))
     api(project(":sdk-android-work"))
     api(project(":sdk-ui-compose"))
+
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.core.ktx)
+
+    testImplementation(project(":sdk-testing"))
+    testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
 }

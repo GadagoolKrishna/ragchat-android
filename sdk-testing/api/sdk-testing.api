@@ -13,6 +13,14 @@ public final class com/ragchat/testing/FakeAuthProvider : com/ragchat/api/auth/A
 	public final fun setToken (Ljava/lang/String;)V
 }
 
+public final class com/ragchat/testing/FakeChatHistoryStore : com/ragchat/api/chat/ChatHistoryStore {
+	public fun <init> ()V
+	public fun addMessage (Ljava/lang/String;Ljava/lang/String;Lcom/ragchat/api/model/ChatMessage;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun clearHistory (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getMessages (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun setMessages (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
 public final class com/ragchat/testing/FakeChunker : com/ragchat/api/ingestion/Chunker {
 	public fun <init> ()V
 	public fun <init> (I)V
@@ -131,5 +139,15 @@ public final class com/ragchat/testing/FakeVectorStore : com/ragchat/api/storage
 	public fun query (Ljava/lang/String;[FILjava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun stats (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun upsert (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract class com/ragchat/testing/LlmProviderContractTest {
+	public fun <init> ()V
+	public abstract fun createProvider ()Lcom/ragchat/api/llm/LlmProvider;
+	public final fun testAvailabilityReporting ()V
+	public final fun testCapabilitiesAreValid ()V
+	public final fun testCloseReleasesResourcesCleanly ()V
+	public final fun testCountTokensReturnsPositive ()V
+	public final fun testGenerateEmitsTokensAndCompletes ()V
 }
 

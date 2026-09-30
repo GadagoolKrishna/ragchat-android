@@ -1,11 +1,11 @@
 package com.ragchat.llm.local
 
 /**
- * Gemini Nano and Gemma/LiteRT provider implementation.
+ * On-device local LLM provider module indicator and utilities.
  */
-public class LocalLlmProvider {
+public object LocalLlmProvider {
     /**
      * Module name identifier.
      */
-    public val moduleName: String = "sdk-android-llm-local"
+    public const val MODULE_NAME: String = "sdk-android-llm-local"
 }

@@ -1,11 +1,11 @@
 package com.ragchat.llm.cloud
 
 /**
- * HTTP-based cloud provider implementation.
+ * Cloud LLM provider module indicator and utilities.
  */
-public class CloudLlmProvider {
+public object CloudLlmProvider {
     /**
      * Module name identifier.
      */
-    public val moduleName: String = "sdk-android-llm-cloud"
+    public const val MODULE_NAME: String = "sdk-android-llm-cloud"
 }

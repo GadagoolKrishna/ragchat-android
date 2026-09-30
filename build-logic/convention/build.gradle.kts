@@ -7,6 +7,7 @@ group = "com.ragchat.buildlogic"
 dependencies {
     implementation(libs.android.gradlePlugin)
     implementation(libs.kotlin.gradlePlugin)
+    implementation(libs.ksp.gradlePlugin)
     implementation(libs.detekt.gradlePlugin)
     implementation(libs.spotless.gradlePlugin)
     implementation(libs.dokka.gradlePlugin)

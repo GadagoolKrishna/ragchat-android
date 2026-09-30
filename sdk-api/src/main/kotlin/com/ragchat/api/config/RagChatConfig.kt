@@ -1,6 +1,7 @@
 package com.ragchat.api.config
 
 import com.ragchat.api.auth.AuthProvider
+import com.ragchat.api.chat.ChatHistoryStore
 import com.ragchat.api.crypto.KeyProvider
 import com.ragchat.api.embedding.EmbeddingProvider
 import com.ragchat.api.governance.ConsentProvider
@@ -33,6 +34,7 @@ public class RagChatConfig internal constructor(
     public val reranker: Reranker?,
     public val queryRewriter: QueryRewriter?,
     public val promptTemplate: PromptTemplate?,
+    public val chatHistoryStore: ChatHistoryStore?,
     public val authProvider: AuthProvider?,
     public val keyProvider: KeyProvider?,
     public val telemetrySink: TelemetrySink?,
@@ -58,62 +60,67 @@ public class RagChatConfigBuilder {
     public var defaultTopK: Int = 5
 
     /**
-     * Timeout in milliseconds for end-to-end generation requests. Defaults to 30,000 ms.
+     * Maximum timeout duration in milliseconds for retrieval or LLM inference operations.
      */
     public var requestTimeoutMs: Long = 30_000L
 
     /**
-     * Optional primary on-device LLM provider.
+     * Local on-device LLM provider (e.g., Gemini Nano or LiteRT Gemma).
      */
     public var localLlmProvider: LlmProvider? = null
 
     /**
-     * Optional primary cloud-hosted LLM provider.
+     * Remote cloud LLM provider (e.g., Gemini API, Vertex, Claude, OpenAI).
      */
     public var cloudLlmProvider: LlmProvider? = null
 
     /**
-     * Dense vector embedding provider.
+     * Embedding provider generating dense vectors.
      */
     public var embeddingProvider: EmbeddingProvider? = null
 
     /**
-     * Persistent vector store backend.
+     * Persistent or in-memory vector storage engine.
      */
     public var vectorStore: VectorStore? = null
 
     /**
-     * Document parsers registered with the pipeline.
+     * Registered document parsers.
      */
     public val parsers: MutableList<DocumentParser> = mutableListOf()
 
     /**
-     * Text chunking strategy.
+     * Document chunker implementation.
      */
     public var chunker: Chunker? = null
 
     /**
-     * Reranking strategy.
+     * Optional re-ranking provider.
      */
     public var reranker: Reranker? = null
 
     /**
-     * Conversational query rewrite strategy.
+     * Contextual query reformulation engine.
      */
     public var queryRewriter: QueryRewriter? = null
 
     /**
-     * Prompt formatting template.
+     * Prompt formatting and citation grounding template.
      */
     public var promptTemplate: PromptTemplate? = null
 
     /**
-     * Host-supplied authentication provider.
+     * Persistent multi-turn chat history store.
+     */
+    public var chatHistoryStore: ChatHistoryStore? = null
+
+    /**
+     * Authentication credentials provider.
      */
     public var authProvider: AuthProvider? = null
 
     /**
-     * Keystore passphrase or key material provider.
+     * Cryptographic key management provider.
      */
     public var keyProvider: KeyProvider? = null
 
@@ -172,6 +179,7 @@ public class RagChatConfigBuilder {
             reranker = reranker,
             queryRewriter = queryRewriter,
             promptTemplate = promptTemplate,
+            chatHistoryStore = chatHistoryStore,
             authProvider = authProvider,
             keyProvider = keyProvider,
             telemetrySink = telemetrySink,

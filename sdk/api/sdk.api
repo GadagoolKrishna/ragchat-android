@@ -1,6 +1,21 @@
 public final class com/ragchat/sdk/RagChat : com/ragchat/api/RagChatApi {
 	public static final field INSTANCE Lcom/ragchat/sdk/RagChat;
+	public fun getChat ()Lcom/ragchat/api/chat/ChatManager;
+	public fun getDocuments ()Lcom/ragchat/api/document/DocumentManager;
 	public fun getVersion ()Ljava/lang/String;
-	public final fun initialize ()V
+	public final fun initialize (Landroid/content/Context;Lcom/ragchat/api/config/RagChatConfig;Lcom/ragchat/storage/db/RagChatDatabase;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun initialize$default (Lcom/ragchat/sdk/RagChat;Landroid/content/Context;Lcom/ragchat/api/config/RagChatConfig;Lcom/ragchat/storage/db/RagChatDatabase;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/sdk/document/DefaultDocumentManager : com/ragchat/api/document/DocumentManager {
+	public fun <init> (Landroid/content/Context;Lcom/ragchat/api/config/RagChatConfig;Lcom/ragchat/storage/StorageManager;Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;)V
+	public synthetic fun <init> (Landroid/content/Context;Lcom/ragchat/api/config/RagChatConfig;Lcom/ragchat/storage/StorageManager;Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun add (Lcom/ragchat/api/parser/DocumentSource;Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun add (Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun add (Ljava/io/InputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun list (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun reindexAll (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun remove (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun status (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 

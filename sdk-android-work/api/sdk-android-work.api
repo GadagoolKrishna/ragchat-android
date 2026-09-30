@@ -1,5 +1,81 @@
-public final class com/ragchat/work/WorkManagerIngestor {
+public final class com/ragchat/work/DocumentIngestionWorker : androidx/work/CoroutineWorker {
+	public static final field Companion Lcom/ragchat/work/DocumentIngestionWorker$Companion;
+	public static final field KEY_COLLECTION_ID Ljava/lang/String;
+	public static final field KEY_DOCUMENT_ID Ljava/lang/String;
+	public static final field KEY_FILE_PATH Ljava/lang/String;
+	public static final field KEY_MIME_TYPE Ljava/lang/String;
+	public fun <init> (Landroid/content/Context;Landroidx/work/WorkerParameters;)V
+	public fun doWork (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/work/DocumentIngestionWorker$Companion {
+	public final fun cancelPipeline (Ljava/lang/String;)V
+}
+
+public final class com/ragchat/work/DocumentIngestionWorker$FileDocumentSource : com/ragchat/api/parser/DocumentSource {
+	public fun <init> (Ljava/io/File;Ljava/lang/String;)V
+	public fun close ()V
+	public fun getMimeType ()Ljava/lang/String;
+	public fun getSizeBytes ()J
+	public fun openStream ()Ljava/io/InputStream;
+}
+
+public final class com/ragchat/work/IngestionConstraints {
 	public fun <init> ()V
-	public final fun getModuleName ()Ljava/lang/String;
+	public fun <init> (ZZZZ)V
+	public synthetic fun <init> (ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun copy (ZZZZ)Lcom/ragchat/work/IngestionConstraints;
+	public static synthetic fun copy$default (Lcom/ragchat/work/IngestionConstraints;ZZZZILjava/lang/Object;)Lcom/ragchat/work/IngestionConstraints;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRequiresBatteryNotLow ()Z
+	public final fun getRequiresCharging ()Z
+	public final fun getRequiresDeviceIdle ()Z
+	public final fun getRequiresUnmeteredNetwork ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/work/WorkManagerIngestor {
+	public fun <init> (Landroid/content/Context;Lcom/ragchat/work/WorkerEngineConfiguration;Lcom/ragchat/work/IngestionConstraints;)V
+	public synthetic fun <init> (Landroid/content/Context;Lcom/ragchat/work/WorkerEngineConfiguration;Lcom/ragchat/work/IngestionConstraints;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun cancel (Ljava/lang/String;)V
+	public final fun cancelAll ()V
+	public final fun enqueue (Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
+	public final fun observeWorkProgress (Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class com/ragchat/work/WorkerEngineConfiguration {
+	public fun <init> (Ljava/util/List;Lcom/ragchat/api/ingestion/Chunker;Lcom/ragchat/api/embedding/EmbeddingProvider;Lcom/ragchat/api/storage/VectorStore;Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;Lcom/ragchat/api/ingestion/IngestionNotificationProvider;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Ljava/util/List;Lcom/ragchat/api/ingestion/Chunker;Lcom/ragchat/api/embedding/EmbeddingProvider;Lcom/ragchat/api/storage/VectorStore;Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;Lcom/ragchat/api/ingestion/IngestionNotificationProvider;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Lcom/ragchat/api/ingestion/Chunker;
+	public final fun component3 ()Lcom/ragchat/api/embedding/EmbeddingProvider;
+	public final fun component4 ()Lcom/ragchat/api/storage/VectorStore;
+	public final fun component5 ()Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;
+	public final fun component6 ()Lcom/ragchat/api/ingestion/IngestionNotificationProvider;
+	public final fun component7 ()Lkotlin/jvm/functions/Function1;
+	public final fun component8 ()Lkotlin/jvm/functions/Function1;
+	public final fun copy (Ljava/util/List;Lcom/ragchat/api/ingestion/Chunker;Lcom/ragchat/api/embedding/EmbeddingProvider;Lcom/ragchat/api/storage/VectorStore;Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;Lcom/ragchat/api/ingestion/IngestionNotificationProvider;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lcom/ragchat/work/WorkerEngineConfiguration;
+	public static synthetic fun copy$default (Lcom/ragchat/work/WorkerEngineConfiguration;Ljava/util/List;Lcom/ragchat/api/ingestion/Chunker;Lcom/ragchat/api/embedding/EmbeddingProvider;Lcom/ragchat/api/storage/VectorStore;Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;Lcom/ragchat/api/ingestion/IngestionNotificationProvider;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/ragchat/work/WorkerEngineConfiguration;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCheckpointStore ()Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;
+	public final fun getChunker ()Lcom/ragchat/api/ingestion/Chunker;
+	public final fun getEmbeddingProvider ()Lcom/ragchat/api/embedding/EmbeddingProvider;
+	public final fun getNotificationProvider ()Lcom/ragchat/api/ingestion/IngestionNotificationProvider;
+	public final fun getParsers ()Ljava/util/List;
+	public final fun getProgressListener ()Lkotlin/jvm/functions/Function1;
+	public final fun getSourceProvider ()Lkotlin/jvm/functions/Function1;
+	public final fun getVectorStore ()Lcom/ragchat/api/storage/VectorStore;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/work/thermal/AndroidThermalStatusProvider : com/ragchat/api/ingestion/ThermalStatusProvider {
+	public fun <init> (Landroid/content/Context;)V
+	public fun getCurrentThermalState ()Lcom/ragchat/api/ingestion/ThermalState;
 }
 

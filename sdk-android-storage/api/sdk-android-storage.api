@@ -3,3 +3,554 @@ public final class com/ragchat/storage/EncryptedStorageManager {
 	public final fun getModuleName ()Ljava/lang/String;
 }
 
+public final class com/ragchat/storage/RoomIngestionCheckpointStore : com/ragchat/ingestion/checkpoint/IngestionCheckpointStore {
+	public fun <init> (Lcom/ragchat/storage/db/RagChatDatabase;Ljava/lang/String;)V
+	public synthetic fun <init> (Lcom/ragchat/storage/db/RagChatDatabase;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun clearCheckpoint (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getCheckpoint (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun saveCheckpoint (Lcom/ragchat/ingestion/checkpoint/IngestionCheckpoint;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateProgress (Lcom/ragchat/api/model/IngestionProgress;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/SqlCipherVectorStore : com/ragchat/api/storage/VectorStore {
+	public fun <init> (Ljava/lang/String;Lcom/ragchat/storage/db/RagChatDatabase;Lcom/ragchat/storage/crypto/EnvelopeEncryptionManager;)V
+	public fun close ()V
+	public fun createCollection (Lcom/ragchat/api/model/CollectionSpec;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun cryptoShred (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteByDocument (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun export (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getScopeId ()Ljava/lang/String;
+	public fun hybridFtsQuery (Ljava/lang/String;Ljava/lang/String;[FILjava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun query (Ljava/lang/String;[FILjava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun stats (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun upsert (Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/StorageManager {
+	public static final field Companion Lcom/ragchat/storage/StorageManager$Companion;
+	public fun <init> (Landroid/content/Context;Lcom/ragchat/storage/db/RagChatDatabase;Lcom/ragchat/storage/crypto/EnvelopeEncryptionManager;Lcom/ragchat/storage/crypto/StreamingDocumentEncryptor;Z)V
+	public synthetic fun <init> (Landroid/content/Context;Lcom/ragchat/storage/db/RagChatDatabase;Lcom/ragchat/storage/crypto/EnvelopeEncryptionManager;Lcom/ragchat/storage/crypto/StreamingDocumentEncryptor;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun clearAllData (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun deleteDocument (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun exportUserData (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun readDocument (Ljava/lang/String;Ljava/lang/String;Ljava/io/OutputStream;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun storeDocument (Lcom/ragchat/storage/StoreDocumentParams;Ljava/io/InputStream;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/StorageManager$Companion {
+}
+
+public final class com/ragchat/storage/StoreDocumentParams {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/util/Map;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Lcom/ragchat/storage/StoreDocumentParams;
+	public static synthetic fun copy$default (Lcom/ragchat/storage/StoreDocumentParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lcom/ragchat/storage/StoreDocumentParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollectionId ()Ljava/lang/String;
+	public final fun getDocumentId ()Ljava/lang/String;
+	public final fun getMetadata ()Ljava/util/Map;
+	public final fun getMimeType ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getScopeId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/storage/crypto/AndroidKeystoreKeyProvider : com/ragchat/api/crypto/KeyProvider {
+	public static final field Companion Lcom/ragchat/storage/crypto/AndroidKeystoreKeyProvider$Companion;
+	public static final field DEFAULT_MASTER_KEY_ALIAS Ljava/lang/String;
+	public fun <init> (Landroid/content/Context;Ljava/lang/String;)V
+	public synthetic fun <init> (Landroid/content/Context;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun cryptoShred (Ljava/lang/String;)V
+	public static synthetic fun cryptoShred$default (Lcom/ragchat/storage/crypto/AndroidKeystoreKeyProvider;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun decrypt ([BLjava/lang/String;)[B
+	public static synthetic fun decrypt$default (Lcom/ragchat/storage/crypto/AndroidKeystoreKeyProvider;[BLjava/lang/String;ILjava/lang/Object;)[B
+	public final fun encrypt ([BLjava/lang/String;)[B
+	public static synthetic fun encrypt$default (Lcom/ragchat/storage/crypto/AndroidKeystoreKeyProvider;[BLjava/lang/String;ILjava/lang/Object;)[B
+	public final fun generateNewKey (Ljava/lang/String;)Z
+	public fun getKeyMaterial (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getMasterKeyAlias ()Ljava/lang/String;
+	public final fun hasKey (Ljava/lang/String;)Z
+	public static synthetic fun hasKey$default (Lcom/ragchat/storage/crypto/AndroidKeystoreKeyProvider;Ljava/lang/String;ILjava/lang/Object;)Z
+}
+
+public final class com/ragchat/storage/crypto/AndroidKeystoreKeyProvider$Companion {
+}
+
+public final class com/ragchat/storage/crypto/EnvelopeEncryptionManager {
+	public static final field Companion Lcom/ragchat/storage/crypto/EnvelopeEncryptionManager$Companion;
+	public static final field DATABASE_KEY_ALIAS Ljava/lang/String;
+	public fun <init> (Landroid/content/Context;Lcom/ragchat/storage/crypto/AndroidKeystoreKeyProvider;Lcom/ragchat/api/crypto/KeyProvider;)V
+	public synthetic fun <init> (Landroid/content/Context;Lcom/ragchat/storage/crypto/AndroidKeystoreKeyProvider;Lcom/ragchat/api/crypto/KeyProvider;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun clearAllKeys ()V
+	public final fun cryptoShredDataKey (Ljava/lang/String;)V
+	public final fun getOrCreateDataKey (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun rotateMasterKey (Ljava/lang/String;Ljava/lang/String;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun rotateMasterKey$default (Lcom/ragchat/storage/crypto/EnvelopeEncryptionManager;Ljava/lang/String;Ljava/lang/String;ZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/crypto/EnvelopeEncryptionManager$Companion {
+}
+
+public final class com/ragchat/storage/crypto/StreamingDocumentEncryptor {
+	public static final field Companion Lcom/ragchat/storage/crypto/StreamingDocumentEncryptor$Companion;
+	public fun <init> ()V
+	public final fun decryptStream (Ljava/io/InputStream;Ljava/io/OutputStream;[B)J
+	public final fun encryptStream (Ljava/io/InputStream;Ljava/io/OutputStream;[B)J
+}
+
+public final class com/ragchat/storage/crypto/StreamingDocumentEncryptor$Companion {
+}
+
+public abstract class com/ragchat/storage/db/RagChatDatabase : androidx/room/RoomDatabase {
+	public static final field Companion Lcom/ragchat/storage/db/RagChatDatabase$Companion;
+	public static final field DATABASE_NAME Ljava/lang/String;
+	public fun <init> ()V
+	public abstract fun auditLogDao ()Lcom/ragchat/storage/db/dao/AuditLogDao;
+	public abstract fun chunkDao ()Lcom/ragchat/storage/db/dao/ChunkDao;
+	public abstract fun collectionDao ()Lcom/ragchat/storage/db/dao/CollectionDao;
+	public abstract fun documentDao ()Lcom/ragchat/storage/db/dao/DocumentDao;
+	public abstract fun embeddingDao ()Lcom/ragchat/storage/db/dao/EmbeddingDao;
+	public abstract fun ftsDao ()Lcom/ragchat/storage/db/dao/FtsDao;
+	public abstract fun ingestionJobDao ()Lcom/ragchat/storage/db/dao/IngestionJobDao;
+	public abstract fun schemaMetaDao ()Lcom/ragchat/storage/db/dao/SchemaMetaDao;
+}
+
+public final class com/ragchat/storage/db/RagChatDatabase$Companion {
+	public final fun getCALLBACK ()Landroidx/room/RoomDatabase$Callback;
+	public final fun getMIGRATION_1_2 ()Landroidx/room/migration/Migration;
+}
+
+public final class com/ragchat/storage/db/RagChatDatabase_Impl : com/ragchat/storage/db/RagChatDatabase {
+	public fun <init> ()V
+	public fun auditLogDao ()Lcom/ragchat/storage/db/dao/AuditLogDao;
+	public fun chunkDao ()Lcom/ragchat/storage/db/dao/ChunkDao;
+	public fun clearAllTables ()V
+	public fun collectionDao ()Lcom/ragchat/storage/db/dao/CollectionDao;
+	public fun documentDao ()Lcom/ragchat/storage/db/dao/DocumentDao;
+	public fun embeddingDao ()Lcom/ragchat/storage/db/dao/EmbeddingDao;
+	public fun ftsDao ()Lcom/ragchat/storage/db/dao/FtsDao;
+	public fun getAutoMigrations (Ljava/util/Map;)Ljava/util/List;
+	public fun getRequiredAutoMigrationSpecs ()Ljava/util/Set;
+	public fun ingestionJobDao ()Lcom/ragchat/storage/db/dao/IngestionJobDao;
+	public fun schemaMetaDao ()Lcom/ragchat/storage/db/dao/SchemaMetaDao;
+}
+
+public final class com/ragchat/storage/db/SqlCipherDatabaseProvider {
+	public fun <init> (Landroid/content/Context;Lcom/ragchat/storage/crypto/EnvelopeEncryptionManager;Ljava/lang/String;)V
+	public synthetic fun <init> (Landroid/content/Context;Lcom/ragchat/storage/crypto/EnvelopeEncryptionManager;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun createDatabase (ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun createDatabase$default (Lcom/ragchat/storage/db/SqlCipherDatabaseProvider;ZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class com/ragchat/storage/db/dao/AuditLogDao {
+	public abstract fun deleteAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun insert (Lcom/ragchat/storage/db/entity/AuditLogEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/AuditLogDao_Impl : com/ragchat/storage/db/dao/AuditLogDao {
+	public static final field Companion Lcom/ragchat/storage/db/dao/AuditLogDao_Impl$Companion;
+	public fun <init> (Landroidx/room/RoomDatabase;)V
+	public fun deleteAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun getRequiredConverters ()Ljava/util/List;
+	public fun insert (Lcom/ragchat/storage/db/entity/AuditLogEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/AuditLogDao_Impl$Companion {
+	public final fun getRequiredConverters ()Ljava/util/List;
+}
+
+public abstract interface class com/ragchat/storage/db/dao/ChunkDao {
+	public abstract fun countChunks (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun countDocuments (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteByCollection (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteByDocument (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getByCollection (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getByDocument (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun insertAll (Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/ChunkDao_Impl : com/ragchat/storage/db/dao/ChunkDao {
+	public static final field Companion Lcom/ragchat/storage/db/dao/ChunkDao_Impl$Companion;
+	public fun <init> (Landroidx/room/RoomDatabase;)V
+	public fun countChunks (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun countDocuments (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteByCollection (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteByDocument (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getByCollection (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getByDocument (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun getRequiredConverters ()Ljava/util/List;
+	public fun insertAll (Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/ChunkDao_Impl$Companion {
+	public final fun getRequiredConverters ()Ljava/util/List;
+}
+
+public abstract interface class com/ragchat/storage/db/dao/CollectionDao {
+	public abstract fun deleteAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAll (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun insert (Lcom/ragchat/storage/db/entity/CollectionEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/CollectionDao_Impl : com/ragchat/storage/db/dao/CollectionDao {
+	public static final field Companion Lcom/ragchat/storage/db/dao/CollectionDao_Impl$Companion;
+	public fun <init> (Landroidx/room/RoomDatabase;)V
+	public fun deleteAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAll (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun getRequiredConverters ()Ljava/util/List;
+	public fun insert (Lcom/ragchat/storage/db/entity/CollectionEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/CollectionDao_Impl$Companion {
+	public final fun getRequiredConverters ()Ljava/util/List;
+}
+
+public abstract interface class com/ragchat/storage/db/dao/DocumentDao {
+	public abstract fun deleteAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteByCollection (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getByCollection (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun insert (Lcom/ragchat/storage/db/entity/DocumentEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/DocumentDao_Impl : com/ragchat/storage/db/dao/DocumentDao {
+	public static final field Companion Lcom/ragchat/storage/db/dao/DocumentDao_Impl$Companion;
+	public fun <init> (Landroidx/room/RoomDatabase;)V
+	public fun deleteAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteByCollection (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getByCollection (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun getRequiredConverters ()Ljava/util/List;
+	public fun insert (Lcom/ragchat/storage/db/entity/DocumentEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/DocumentDao_Impl$Companion {
+	public final fun getRequiredConverters ()Ljava/util/List;
+}
+
+public abstract interface class com/ragchat/storage/db/dao/EmbeddingDao {
+	public abstract fun deleteAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteByChunkId (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteByCollection (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAllInCollection (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getByChunkId (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun insertAll (Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/EmbeddingDao_Impl : com/ragchat/storage/db/dao/EmbeddingDao {
+	public static final field Companion Lcom/ragchat/storage/db/dao/EmbeddingDao_Impl$Companion;
+	public fun <init> (Landroidx/room/RoomDatabase;)V
+	public fun deleteAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteByChunkId (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteByCollection (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAllInCollection (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getByChunkId (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun getRequiredConverters ()Ljava/util/List;
+	public fun insertAll (Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/EmbeddingDao_Impl$Companion {
+	public final fun getRequiredConverters ()Ljava/util/List;
+}
+
+public abstract interface class com/ragchat/storage/db/dao/FtsDao {
+	public abstract fun deleteAllInScope (Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)V
+	public abstract fun deleteByChunkId (Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;Ljava/lang/String;)V
+	public abstract fun deleteByCollection (Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;Ljava/lang/String;)V
+	public abstract fun search (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun searchRaw (Landroidx/sqlite/db/SupportSQLiteQuery;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/FtsDao$DefaultImpls {
+	public static fun deleteAllInScope (Lcom/ragchat/storage/db/dao/FtsDao;Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)V
+	public static fun deleteByChunkId (Lcom/ragchat/storage/db/dao/FtsDao;Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;Ljava/lang/String;)V
+	public static fun deleteByCollection (Lcom/ragchat/storage/db/dao/FtsDao;Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;Ljava/lang/String;)V
+	public static fun search (Lcom/ragchat/storage/db/dao/FtsDao;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/FtsDao_Impl : com/ragchat/storage/db/dao/FtsDao {
+	public static final field Companion Lcom/ragchat/storage/db/dao/FtsDao_Impl$Companion;
+	public fun <init> (Landroidx/room/RoomDatabase;)V
+	public fun deleteAllInScope (Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)V
+	public fun deleteByChunkId (Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;Ljava/lang/String;)V
+	public fun deleteByCollection (Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;Ljava/lang/String;)V
+	public static final fun getRequiredConverters ()Ljava/util/List;
+	public fun search (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchRaw (Landroidx/sqlite/db/SupportSQLiteQuery;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/FtsDao_Impl$Companion {
+	public final fun getRequiredConverters ()Ljava/util/List;
+}
+
+public final class com/ragchat/storage/db/dao/FtsSearchResult {
+	public fun <init> (Ljava/lang/String;D)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()D
+	public final fun copy (Ljava/lang/String;D)Lcom/ragchat/storage/db/dao/FtsSearchResult;
+	public static synthetic fun copy$default (Lcom/ragchat/storage/db/dao/FtsSearchResult;Ljava/lang/String;DILjava/lang/Object;)Lcom/ragchat/storage/db/dao/FtsSearchResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChunkId ()Ljava/lang/String;
+	public final fun getRank ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/storage/db/dao/IngestionJobDao {
+	public abstract fun deleteAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getByDocument (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun insert (Lcom/ragchat/storage/db/entity/IngestionJobEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/IngestionJobDao_Impl : com/ragchat/storage/db/dao/IngestionJobDao {
+	public static final field Companion Lcom/ragchat/storage/db/dao/IngestionJobDao_Impl$Companion;
+	public fun <init> (Landroidx/room/RoomDatabase;)V
+	public fun deleteAllInScope (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getByDocument (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getById (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun getRequiredConverters ()Ljava/util/List;
+	public fun insert (Lcom/ragchat/storage/db/entity/IngestionJobEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/IngestionJobDao_Impl$Companion {
+	public final fun getRequiredConverters ()Ljava/util/List;
+}
+
+public abstract interface class com/ragchat/storage/db/dao/SchemaMetaDao {
+	public abstract fun get (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun set (Lcom/ragchat/storage/db/entity/SchemaMetaEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/SchemaMetaDao_Impl : com/ragchat/storage/db/dao/SchemaMetaDao {
+	public static final field Companion Lcom/ragchat/storage/db/dao/SchemaMetaDao_Impl$Companion;
+	public fun <init> (Landroidx/room/RoomDatabase;)V
+	public fun get (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun getRequiredConverters ()Ljava/util/List;
+	public fun set (Lcom/ragchat/storage/db/entity/SchemaMetaEntity;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/storage/db/dao/SchemaMetaDao_Impl$Companion {
+	public final fun getRequiredConverters ()Ljava/util/List;
+}
+
+public final class com/ragchat/storage/db/entity/AuditLogEntity {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)Lcom/ragchat/storage/db/entity/AuditLogEntity;
+	public static synthetic fun copy$default (Lcom/ragchat/storage/db/entity/AuditLogEntity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lcom/ragchat/storage/db/entity/AuditLogEntity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAction ()Ljava/lang/String;
+	public final fun getEventType ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getScopeId ()Ljava/lang/String;
+	public final fun getStatus ()Ljava/lang/String;
+	public final fun getTimestamp ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/storage/db/entity/ChunkEntity {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;ILjava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()I
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()I
+	public final fun component8 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;ILjava/lang/String;)Lcom/ragchat/storage/db/entity/ChunkEntity;
+	public static synthetic fun copy$default (Lcom/ragchat/storage/db/entity/ChunkEntity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;ILjava/lang/String;ILjava/lang/Object;)Lcom/ragchat/storage/db/entity/ChunkEntity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollectionId ()Ljava/lang/String;
+	public final fun getDocumentId ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMetadataJson ()Ljava/lang/String;
+	public final fun getScopeId ()Ljava/lang/String;
+	public final fun getSequenceNumber ()I
+	public final fun getText ()Ljava/lang/String;
+	public final fun getTokenCount ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/storage/db/entity/CollectionEntity {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;JJ)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()I
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()J
+	public final fun component9 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;JJ)Lcom/ragchat/storage/db/entity/CollectionEntity;
+	public static synthetic fun copy$default (Lcom/ragchat/storage/db/entity/CollectionEntity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;JJILjava/lang/Object;)Lcom/ragchat/storage/db/entity/CollectionEntity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()J
+	public final fun getDimensions ()I
+	public final fun getDistanceMetric ()Ljava/lang/String;
+	public final fun getEmbeddingModelId ()Ljava/lang/String;
+	public final fun getEmbeddingVersion ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getScopeId ()Ljava/lang/String;
+	public final fun getUpdatedAt ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/storage/db/entity/DocumentEntity {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;JJ)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()J
+	public final fun component11 ()J
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()J
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;JJ)Lcom/ragchat/storage/db/entity/DocumentEntity;
+	public static synthetic fun copy$default (Lcom/ragchat/storage/db/entity/DocumentEntity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;JJILjava/lang/Object;)Lcom/ragchat/storage/db/entity/DocumentEntity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChecksum ()Ljava/lang/String;
+	public final fun getCollectionId ()Ljava/lang/String;
+	public final fun getCreatedAt ()J
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMetadataJson ()Ljava/lang/String;
+	public final fun getMimeType ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getRawEncryptedPath ()Ljava/lang/String;
+	public final fun getScopeId ()Ljava/lang/String;
+	public final fun getSizeBytes ()J
+	public final fun getUpdatedAt ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/storage/db/entity/EmbeddingEntity {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[B)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()I
+	public final fun component5 ()[B
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[B)Lcom/ragchat/storage/db/entity/EmbeddingEntity;
+	public static synthetic fun copy$default (Lcom/ragchat/storage/db/entity/EmbeddingEntity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[BILjava/lang/Object;)Lcom/ragchat/storage/db/entity/EmbeddingEntity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChunkId ()Ljava/lang/String;
+	public final fun getCollectionId ()Ljava/lang/String;
+	public final fun getDimensions ()I
+	public final fun getScopeId ()Ljava/lang/String;
+	public final fun getVectorBlob ()[B
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/storage/db/entity/IngestionJobEntity {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;FLjava/lang/String;Ljava/lang/String;IJJ)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()J
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()F
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()I
+	public final fun component9 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;FLjava/lang/String;Ljava/lang/String;IJJ)Lcom/ragchat/storage/db/entity/IngestionJobEntity;
+	public static synthetic fun copy$default (Lcom/ragchat/storage/db/entity/IngestionJobEntity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;FLjava/lang/String;Ljava/lang/String;IJJILjava/lang/Object;)Lcom/ragchat/storage/db/entity/IngestionJobEntity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()J
+	public final fun getDocumentId ()Ljava/lang/String;
+	public final fun getErrorCategory ()Ljava/lang/String;
+	public final fun getErrorCode ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getProgress ()F
+	public final fun getRetryCount ()I
+	public final fun getScopeId ()Ljava/lang/String;
+	public final fun getStatus ()Ljava/lang/String;
+	public final fun getUpdatedAt ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/storage/db/entity/SchemaMetaEntity {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/ragchat/storage/db/entity/SchemaMetaEntity;
+	public static synthetic fun copy$default (Lcom/ragchat/storage/db/entity/SchemaMetaEntity;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/storage/db/entity/SchemaMetaEntity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/storage/util/HnswIndex {
+	public fun <init> (ILcom/ragchat/api/model/DistanceMetric;IIILjava/lang/Long;)V
+	public synthetic fun <init> (ILcom/ragchat/api/model/DistanceMetric;IIILjava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getDimensions ()I
+	public final fun getMetric ()Lcom/ragchat/api/model/DistanceMetric;
+	public final fun insert (Ljava/lang/String;Lcom/ragchat/storage/util/QuantizedVector;)V
+	public final fun search (Lcom/ragchat/storage/util/QuantizedVector;I)Ljava/util/List;
+}
+
+public final class com/ragchat/storage/util/QuantizedVector {
+	public fun <init> ([BFF)V
+	public final fun component1 ()[B
+	public final fun component2 ()F
+	public final fun component3 ()F
+	public final fun copy ([BFF)Lcom/ragchat/storage/util/QuantizedVector;
+	public static synthetic fun copy$default (Lcom/ragchat/storage/util/QuantizedVector;[BFFILjava/lang/Object;)Lcom/ragchat/storage/util/QuantizedVector;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getNorm ()F
+	public final fun getQuantized ()[B
+	public final fun getScale ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/storage/util/QuantizedVectorMath {
+	public static final field INSTANCE Lcom/ragchat/storage/util/QuantizedVectorMath;
+	public final fun computeQuantizedSimilarity (Lcom/ragchat/storage/util/QuantizedVector;Lcom/ragchat/storage/util/QuantizedVector;Lcom/ragchat/api/model/DistanceMetric;)F
+	public final fun fromBlob ([BI)Lcom/ragchat/storage/util/QuantizedVector;
+	public final fun quantize ([F)Lcom/ragchat/storage/util/QuantizedVector;
+	public final fun toBlob (Lcom/ragchat/storage/util/QuantizedVector;)[B
+}
+

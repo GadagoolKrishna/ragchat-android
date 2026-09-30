@@ -3,3 +3,96 @@ public final class com/ragchat/core/RagChatCore {
 	public final fun isInitialized ()Z
 }
 
+public final class com/ragchat/core/chat/DefaultChatManager : com/ragchat/api/chat/ChatManager {
+	public fun <init> (Lcom/ragchat/api/config/RagChatConfig;Lcom/ragchat/api/chat/ChatHistoryStore;Lcom/ragchat/core/memory/RollingHistorySummarizer;)V
+	public synthetic fun <init> (Lcom/ragchat/api/config/RagChatConfig;Lcom/ragchat/api/chat/ChatHistoryStore;Lcom/ragchat/core/memory/RollingHistorySummarizer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun ask (Ljava/lang/String;Lcom/ragchat/api/chat/ChatOptions;)Lkotlinx/coroutines/flow/Flow;
+	public fun clearHistory (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getHistory (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/core/citation/CitationBuilder {
+	public static final field INSTANCE Lcom/ragchat/core/citation/CitationBuilder;
+	public final fun extractCitations (Ljava/lang/String;Ljava/util/List;)Ljava/util/List;
+}
+
+public final class com/ragchat/core/memory/InMemoryChatHistoryStore : com/ragchat/api/chat/ChatHistoryStore {
+	public fun <init> ()V
+	public fun addMessage (Ljava/lang/String;Ljava/lang/String;Lcom/ragchat/api/model/ChatMessage;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun clearHistory (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getMessages (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun setMessages (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/core/memory/RollingHistorySummarizer {
+	public fun <init> ()V
+	public fun <init> (II)V
+	public synthetic fun <init> (IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun condenseIfNeeded (Ljava/lang/String;Ljava/lang/String;Lcom/ragchat/api/chat/ChatHistoryStore;Lcom/ragchat/api/llm/LlmProvider;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getMaxHistoryTokens ()I
+	public final fun getRecentTurnsToKeep ()I
+}
+
+public final class com/ragchat/core/prompt/ModelFamily : java/lang/Enum {
+	public static final field CLAUDE Lcom/ragchat/core/prompt/ModelFamily;
+	public static final field GEMINI Lcom/ragchat/core/prompt/ModelFamily;
+	public static final field GEMMA Lcom/ragchat/core/prompt/ModelFamily;
+	public static final field OPENAI Lcom/ragchat/core/prompt/ModelFamily;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/core/prompt/ModelFamily;
+	public static fun values ()[Lcom/ragchat/core/prompt/ModelFamily;
+}
+
+public final class com/ragchat/core/prompt/PromptBuilder {
+	public static final field Companion Lcom/ragchat/core/prompt/PromptBuilder$Companion;
+	public fun <init> ()V
+	public fun <init> (Lcom/ragchat/core/prompt/ModelFamily;Ljava/lang/String;)V
+	public synthetic fun <init> (Lcom/ragchat/core/prompt/ModelFamily;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun assembleMessages (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+	public final fun buildRetrievedContext (Ljava/util/List;)Ljava/lang/String;
+	public final fun buildSystemInstruction (Ljava/lang/String;)Ljava/lang/String;
+	public static synthetic fun buildSystemInstruction$default (Lcom/ragchat/core/prompt/PromptBuilder;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
+	public final fun calculateContextBudget (Lcom/ragchat/api/llm/LlmCapabilities;III)I
+	public static synthetic fun calculateContextBudget$default (Lcom/ragchat/core/prompt/PromptBuilder;Lcom/ragchat/api/llm/LlmCapabilities;IIIILjava/lang/Object;)I
+	public final fun formatUserMessageContent (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public final fun getFallbackMsg ()Ljava/lang/String;
+	public final fun getModelFamily ()Lcom/ragchat/core/prompt/ModelFamily;
+}
+
+public final class com/ragchat/core/prompt/PromptBuilder$Companion {
+	public final fun detectFamily (Ljava/lang/String;)Lcom/ragchat/core/prompt/ModelFamily;
+}
+
+public final class com/ragchat/core/prompt/PromptInjectionDefense {
+	public static final field INSTANCE Lcom/ragchat/core/prompt/PromptInjectionDefense;
+	public final fun sanitizeChunk (Ljava/lang/String;)Ljava/lang/String;
+	public final fun wrapChunk (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public static synthetic fun wrapChunk$default (Lcom/ragchat/core/prompt/PromptInjectionDefense;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
+}
+
+public final class com/ragchat/core/structured/JsonSchemaValidator {
+	public static final field INSTANCE Lcom/ragchat/core/structured/JsonSchemaValidator;
+	public final fun validate (Ljava/lang/String;Ljava/lang/String;)Lcom/ragchat/core/structured/ValidationResult;
+}
+
+public abstract interface class com/ragchat/core/structured/ValidationResult {
+}
+
+public final class com/ragchat/core/structured/ValidationResult$Invalid : com/ragchat/core/structured/ValidationResult {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/ragchat/core/structured/ValidationResult$Invalid;
+	public static synthetic fun copy$default (Lcom/ragchat/core/structured/ValidationResult$Invalid;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/core/structured/ValidationResult$Invalid;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReason ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/core/structured/ValidationResult$Valid : com/ragchat/core/structured/ValidationResult {
+	public static final field INSTANCE Lcom/ragchat/core/structured/ValidationResult$Valid;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+

@@ -20,6 +20,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+    }
 }
 
 dependencies {
@@ -27,5 +31,9 @@ dependencies {
     implementation(libs.androidx.benchmark.macro.junit4)
     implementation(libs.androidx.test.ext.junit)
     implementation(libs.androidx.test.espresso.core)
-    implementation(project(":sdk"))
+    implementation(project(":sdk-api"))
+    implementation(project(":sdk-android-storage"))
+    implementation(project(":sdk-retrieval"))
+    implementation(libs.junit)
+    implementation(libs.kotlin.test)
 }

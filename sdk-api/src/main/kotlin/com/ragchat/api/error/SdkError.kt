@@ -96,4 +96,21 @@ public sealed class SdkError(
         public val errorCode: String,
         cause: Throwable? = null,
     ) : SdkError("STORAGE_CRYPTO_ERROR_$errorCode", cause)
+
+    /**
+     * Insufficient evidence or retrieval confidence below acceptance threshold.
+     */
+    public class InsufficientEvidenceError(
+        public val reason: String,
+        cause: Throwable? = null,
+    ) : SdkError("INSUFFICIENT_EVIDENCE", cause)
+
+    /**
+     * Input parameter or schema validation failure.
+     */
+    public class ValidationError(
+        public val field: String,
+        public val details: String,
+        cause: Throwable? = null,
+    ) : SdkError("VALIDATION_ERROR_$field", cause)
 }

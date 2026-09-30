@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Legacy full backup exclusions (Android 11 and lower) -->
+    <exclude domain="database" path="ragchat_storage.db" />
+    <exclude domain="database" path="ragchat_storage.db-wal" />
+    <exclude domain="database" path="ragchat_storage.db-shm" />
+    <exclude domain="file" path="ragchat_documents" />
+    <exclude domain="file" path="ragchat_keys" />
+    <exclude domain="sharedpref" path="ragchat_secure_prefs.xml" />
+</full-backup-content>

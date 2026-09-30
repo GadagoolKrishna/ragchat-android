@@ -1,5 +1,51 @@
 public final class com/ragchat/llm/local/LocalLlmProvider {
+	public static final field INSTANCE Lcom/ragchat/llm/local/LocalLlmProvider;
+	public static final field MODULE_NAME Ljava/lang/String;
+}
+
+public final class com/ragchat/llm/local/lifecycle/LocalLlmMemoryManager : android/content/ComponentCallbacks2 {
 	public fun <init> ()V
-	public final fun getModuleName ()Ljava/lang/String;
+	public fun <init> (Lcom/ragchat/api/logging/RagChatLogger;)V
+	public synthetic fun <init> (Lcom/ragchat/api/logging/RagChatLogger;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun onConfigurationChanged (Landroid/content/res/Configuration;)V
+	public fun onLowMemory ()V
+	public fun onTrimMemory (I)V
+	public final fun register (Lcom/ragchat/llm/local/litert/GemmaLiteRtProvider;)V
+}
+
+public final class com/ragchat/llm/local/litert/GemmaLiteRtProvider : com/ragchat/api/llm/LlmProvider {
+	public fun <init> (Landroid/content/Context;Ljava/lang/String;ZILcom/ragchat/api/logging/RagChatLogger;)V
+	public synthetic fun <init> (Landroid/content/Context;Ljava/lang/String;ZILcom/ragchat/api/logging/RagChatLogger;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun availability (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun close ()V
+	public fun countTokens (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun generate (Lcom/ragchat/api/llm/LlmRequest;)Lkotlinx/coroutines/flow/Flow;
+	public fun getCapabilities ()Lcom/ragchat/api/llm/LlmCapabilities;
+	public fun getId ()Ljava/lang/String;
+	public final fun getModelPath ()Ljava/lang/String;
+	public final fun unload ()V
+}
+
+public class com/ragchat/llm/local/nano/AiCoreAvailabilityChecker {
+	public fun <init> (Landroid/content/Context;)V
+	public fun checkAvailability ()Lcom/ragchat/api/llm/Availability;
+}
+
+public final class com/ragchat/llm/local/nano/GeminiNanoProvider : com/ragchat/api/llm/LlmProvider {
+	public fun <init> (Landroid/content/Context;Lcom/ragchat/llm/local/nano/AiCoreAvailabilityChecker;Lcom/ragchat/api/logging/RagChatLogger;)V
+	public synthetic fun <init> (Landroid/content/Context;Lcom/ragchat/llm/local/nano/AiCoreAvailabilityChecker;Lcom/ragchat/api/logging/RagChatLogger;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun availability (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun close ()V
+	public fun countTokens (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun generate (Lcom/ragchat/api/llm/LlmRequest;)Lkotlinx/coroutines/flow/Flow;
+	public fun getCapabilities ()Lcom/ragchat/api/llm/LlmCapabilities;
+	public fun getId ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/llm/local/runtime/ExtraRuntimeProvider : com/ragchat/api/llm/LlmProvider {
+	public abstract fun getModelPath ()Ljava/lang/String;
+	public abstract fun getNumThreads ()I
+	public abstract fun getRuntimeName ()Ljava/lang/String;
+	public abstract fun unload ()V
 }
 

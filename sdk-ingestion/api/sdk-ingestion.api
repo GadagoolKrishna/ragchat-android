@@ -1,5 +1,166 @@
+public final class com/ragchat/ingestion/IngestionJobParams {
+	public fun <init> (Lcom/ragchat/api/model/Document;Lcom/ragchat/api/parser/DocumentSource;Ljava/lang/String;Ljava/util/List;Lcom/ragchat/api/ingestion/Chunker;Lcom/ragchat/api/embedding/EmbeddingProvider;Lcom/ragchat/api/storage/VectorStore;Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;Lcom/ragchat/ingestion/backpressure/BackpressureController;Lcom/ragchat/ingestion/retry/RetryPolicy;Ljava/lang/String;Lcom/ragchat/api/logging/RagChatLogger;)V
+	public synthetic fun <init> (Lcom/ragchat/api/model/Document;Lcom/ragchat/api/parser/DocumentSource;Ljava/lang/String;Ljava/util/List;Lcom/ragchat/api/ingestion/Chunker;Lcom/ragchat/api/embedding/EmbeddingProvider;Lcom/ragchat/api/storage/VectorStore;Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;Lcom/ragchat/ingestion/backpressure/BackpressureController;Lcom/ragchat/ingestion/retry/RetryPolicy;Ljava/lang/String;Lcom/ragchat/api/logging/RagChatLogger;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/ragchat/api/model/Document;
+	public final fun component10 ()Lcom/ragchat/ingestion/retry/RetryPolicy;
+	public final fun component11 ()Ljava/lang/String;
+	public final fun component12 ()Lcom/ragchat/api/logging/RagChatLogger;
+	public final fun component2 ()Lcom/ragchat/api/parser/DocumentSource;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Lcom/ragchat/api/ingestion/Chunker;
+	public final fun component6 ()Lcom/ragchat/api/embedding/EmbeddingProvider;
+	public final fun component7 ()Lcom/ragchat/api/storage/VectorStore;
+	public final fun component8 ()Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;
+	public final fun component9 ()Lcom/ragchat/ingestion/backpressure/BackpressureController;
+	public final fun copy (Lcom/ragchat/api/model/Document;Lcom/ragchat/api/parser/DocumentSource;Ljava/lang/String;Ljava/util/List;Lcom/ragchat/api/ingestion/Chunker;Lcom/ragchat/api/embedding/EmbeddingProvider;Lcom/ragchat/api/storage/VectorStore;Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;Lcom/ragchat/ingestion/backpressure/BackpressureController;Lcom/ragchat/ingestion/retry/RetryPolicy;Ljava/lang/String;Lcom/ragchat/api/logging/RagChatLogger;)Lcom/ragchat/ingestion/IngestionJobParams;
+	public static synthetic fun copy$default (Lcom/ragchat/ingestion/IngestionJobParams;Lcom/ragchat/api/model/Document;Lcom/ragchat/api/parser/DocumentSource;Ljava/lang/String;Ljava/util/List;Lcom/ragchat/api/ingestion/Chunker;Lcom/ragchat/api/embedding/EmbeddingProvider;Lcom/ragchat/api/storage/VectorStore;Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;Lcom/ragchat/ingestion/backpressure/BackpressureController;Lcom/ragchat/ingestion/retry/RetryPolicy;Ljava/lang/String;Lcom/ragchat/api/logging/RagChatLogger;ILjava/lang/Object;)Lcom/ragchat/ingestion/IngestionJobParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackpressureController ()Lcom/ragchat/ingestion/backpressure/BackpressureController;
+	public final fun getCheckpointStore ()Lcom/ragchat/ingestion/checkpoint/IngestionCheckpointStore;
+	public final fun getChunker ()Lcom/ragchat/api/ingestion/Chunker;
+	public final fun getCollectionId ()Ljava/lang/String;
+	public final fun getDocument ()Lcom/ragchat/api/model/Document;
+	public final fun getEmbeddingProvider ()Lcom/ragchat/api/embedding/EmbeddingProvider;
+	public final fun getExistingChecksum ()Ljava/lang/String;
+	public final fun getLogger ()Lcom/ragchat/api/logging/RagChatLogger;
+	public final fun getParsers ()Ljava/util/List;
+	public final fun getRetryPolicy ()Lcom/ragchat/ingestion/retry/RetryPolicy;
+	public final fun getSource ()Lcom/ragchat/api/parser/DocumentSource;
+	public final fun getVectorStore ()Lcom/ragchat/api/storage/VectorStore;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/ragchat/ingestion/IngestionPipeline {
 	public fun <init> ()V
-	public final fun isRunning ()Z
+	public final fun cancel (Ljava/lang/String;)V
+	public final fun ingest (Lcom/ragchat/ingestion/IngestionJobParams;)Lkotlinx/coroutines/flow/Flow;
+	public final fun pause (Ljava/lang/String;)V
+	public final fun resume (Ljava/lang/String;)V
+}
+
+public final class com/ragchat/ingestion/backpressure/BackpressureController {
+	public fun <init> ()V
+	public fun <init> (Lcom/ragchat/api/ingestion/ThermalStatusProvider;II)V
+	public synthetic fun <init> (Lcom/ragchat/api/ingestion/ThermalStatusProvider;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun applyThrottleDelay (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun resolveBatchSize ()I
+}
+
+public final class com/ragchat/ingestion/checkpoint/InMemoryIngestionCheckpointStore : com/ragchat/ingestion/checkpoint/IngestionCheckpointStore {
+	public fun <init> ()V
+	public fun clearCheckpoint (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getCheckpoint (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getProgress (Ljava/lang/String;)Lcom/ragchat/api/model/IngestionProgress;
+	public fun saveCheckpoint (Lcom/ragchat/ingestion/checkpoint/IngestionCheckpoint;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateProgress (Lcom/ragchat/api/model/IngestionProgress;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/ingestion/checkpoint/IngestionCheckpoint {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/ragchat/api/model/IngestionStage;IILjava/lang/String;J)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/ragchat/api/model/IngestionStage;IILjava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lcom/ragchat/api/model/IngestionStage;
+	public final fun component4 ()I
+	public final fun component5 ()I
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lcom/ragchat/api/model/IngestionStage;IILjava/lang/String;J)Lcom/ragchat/ingestion/checkpoint/IngestionCheckpoint;
+	public static synthetic fun copy$default (Lcom/ragchat/ingestion/checkpoint/IngestionCheckpoint;Ljava/lang/String;Ljava/lang/String;Lcom/ragchat/api/model/IngestionStage;IILjava/lang/String;JILjava/lang/Object;)Lcom/ragchat/ingestion/checkpoint/IngestionCheckpoint;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollectionId ()Ljava/lang/String;
+	public final fun getCompletedUnits ()I
+	public final fun getDocumentId ()Ljava/lang/String;
+	public final fun getPayloadJson ()Ljava/lang/String;
+	public final fun getStage ()Lcom/ragchat/api/model/IngestionStage;
+	public final fun getTotalUnits ()I
+	public final fun getUpdatedAt ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/ingestion/checkpoint/IngestionCheckpointStore {
+	public abstract fun clearCheckpoint (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getCheckpoint (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun saveCheckpoint (Lcom/ragchat/ingestion/checkpoint/IngestionCheckpoint;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun updateProgress (Lcom/ragchat/api/model/IngestionProgress;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/ingestion/chunking/FixedSizeChunker : com/ragchat/api/ingestion/Chunker {
+	public fun <init> ()V
+	public fun <init> (IILcom/ragchat/ingestion/tokenizer/TokenEstimator;)V
+	public synthetic fun <init> (IILcom/ragchat/ingestion/tokenizer/TokenEstimator;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun chunk (Lcom/ragchat/api/model/Document;Ljava/util/List;)Ljava/util/List;
+	public final fun getChunkOverlap ()I
+	public final fun getChunkSize ()I
+	public final fun getTokenEstimator ()Lcom/ragchat/ingestion/tokenizer/TokenEstimator;
+}
+
+public final class com/ragchat/ingestion/chunking/RecursiveChunker : com/ragchat/api/ingestion/Chunker {
+	public fun <init> ()V
+	public fun <init> (ILcom/ragchat/ingestion/tokenizer/TokenEstimator;)V
+	public synthetic fun <init> (ILcom/ragchat/ingestion/tokenizer/TokenEstimator;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun chunk (Lcom/ragchat/api/model/Document;Ljava/util/List;)Ljava/util/List;
+	public final fun getMaxChunkTokens ()I
+	public final fun getTokenEstimator ()Lcom/ragchat/ingestion/tokenizer/TokenEstimator;
+}
+
+public final class com/ragchat/ingestion/chunking/SemanticChunker : com/ragchat/api/ingestion/Chunker {
+	public fun <init> (Lcom/ragchat/api/embedding/EmbeddingProvider;FILcom/ragchat/ingestion/tokenizer/TokenEstimator;)V
+	public synthetic fun <init> (Lcom/ragchat/api/embedding/EmbeddingProvider;FILcom/ragchat/ingestion/tokenizer/TokenEstimator;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun chunk (Lcom/ragchat/api/model/Document;Ljava/util/List;)Ljava/util/List;
+	public final fun getMaxChunkTokens ()I
+	public final fun getSimilarityThreshold ()F
+	public final fun getTokenEstimator ()Lcom/ragchat/ingestion/tokenizer/TokenEstimator;
+}
+
+public final class com/ragchat/ingestion/chunking/StructureAwareChunker : com/ragchat/api/ingestion/Chunker {
+	public fun <init> ()V
+	public fun <init> (ILcom/ragchat/ingestion/tokenizer/TokenEstimator;)V
+	public synthetic fun <init> (ILcom/ragchat/ingestion/tokenizer/TokenEstimator;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun chunk (Lcom/ragchat/api/model/Document;Ljava/util/List;)Ljava/util/List;
+	public final fun getMaxChunkTokens ()I
+	public final fun getTokenEstimator ()Lcom/ragchat/ingestion/tokenizer/TokenEstimator;
+}
+
+public final class com/ragchat/ingestion/retry/RetryPolicy {
+	public fun <init> ()V
+	public fun <init> (IJJD)V
+	public synthetic fun <init> (IJJDILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun component4 ()D
+	public final fun copy (IJJD)Lcom/ragchat/ingestion/retry/RetryPolicy;
+	public static synthetic fun copy$default (Lcom/ragchat/ingestion/retry/RetryPolicy;IJJDILjava/lang/Object;)Lcom/ragchat/ingestion/retry/RetryPolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun executeWithRetry (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun executeWithRetry$default (Lcom/ragchat/ingestion/retry/RetryPolicy;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun getBackoffMultiplier ()D
+	public final fun getInitialDelayMs ()J
+	public final fun getMaxDelayMs ()J
+	public final fun getMaxRetries ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/ingestion/tokenizer/CharacterRatioTokenEstimator : com/ragchat/ingestion/tokenizer/TokenEstimator {
+	public fun <init> ()V
+	public fun <init> (FF)V
+	public synthetic fun <init> (FFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun estimateTokens (Ljava/lang/String;)I
+}
+
+public abstract interface class com/ragchat/ingestion/tokenizer/TokenEstimator {
+	public abstract fun estimateTokens (Ljava/lang/String;)I
+}
+
+public final class com/ragchat/ingestion/tokenizer/WordBoundaryTokenEstimator : com/ragchat/ingestion/tokenizer/TokenEstimator {
+	public fun <init> ()V
+	public fun <init> (F)V
+	public synthetic fun <init> (FILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun estimateTokens (Ljava/lang/String;)I
 }
 

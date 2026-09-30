@@ -6,3 +6,7 @@ build/
 *.iml
 local.properties
 .DS_Store
+build-logic/convention/build/
+.gradle/
+build/
+**/build/

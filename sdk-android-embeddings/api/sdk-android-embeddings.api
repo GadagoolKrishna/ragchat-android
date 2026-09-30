@@ -1,5 +1,126 @@
-public final class com/ragchat/embeddings/OnDeviceEmbeddingProvider {
+public final class com/ragchat/embeddings/cloud/CloudEmbeddingProvider : com/ragchat/api/embedding/EmbeddingProvider {
+	public fun <init> (Ljava/lang/String;Lcom/ragchat/api/auth/AuthProvider;Lcom/ragchat/api/governance/PolicyProvider;Ljava/lang/String;Ljava/lang/String;IIZLjava/lang/String;IILcom/ragchat/api/logging/RagChatLogger;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/ragchat/api/auth/AuthProvider;Lcom/ragchat/api/governance/PolicyProvider;Ljava/lang/String;Ljava/lang/String;IIZLjava/lang/String;IILcom/ragchat/api/logging/RagChatLogger;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public fun embed (Ljava/util/List;Lcom/ragchat/api/embedding/EmbeddingTaskType;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getDimensions ()I
+	public fun getMaxInputTokens ()I
+	public fun getModelId ()Ljava/lang/String;
+	public fun getNormalize ()Z
+	public fun getVersion ()Ljava/lang/String;
+}
+
+public final class com/ragchat/embeddings/lifecycle/EmbeddingMemoryManager : android/content/ComponentCallbacks2 {
 	public fun <init> ()V
-	public final fun getModuleName ()Ljava/lang/String;
+	public fun <init> (Lcom/ragchat/api/logging/RagChatLogger;)V
+	public synthetic fun <init> (Lcom/ragchat/api/logging/RagChatLogger;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun attachToContext (Landroid/content/Context;)V
+	public final fun detachFromContext (Landroid/content/Context;)V
+	public fun onConfigurationChanged (Landroid/content/res/Configuration;)V
+	public fun onLowMemory ()V
+	public fun onTrimMemory (I)V
+	public final fun registerListener (Landroid/content/ComponentCallbacks2;)V
+}
+
+public final class com/ragchat/embeddings/litert/LiteRtDelegateManager : java/lang/AutoCloseable {
+	public fun <init> ()V
+	public fun <init> (Lcom/ragchat/api/logging/RagChatLogger;)V
+	public synthetic fun <init> (Lcom/ragchat/api/logging/RagChatLogger;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun createOptions (Lcom/ragchat/embeddings/litert/LiteRtDelegateManager$DelegateTier;I)Lkotlin/Pair;
+	public static synthetic fun createOptions$default (Lcom/ragchat/embeddings/litert/LiteRtDelegateManager;Lcom/ragchat/embeddings/litert/LiteRtDelegateManager$DelegateTier;IILjava/lang/Object;)Lkotlin/Pair;
+}
+
+public final class com/ragchat/embeddings/litert/LiteRtDelegateManager$DelegateTier : java/lang/Enum {
+	public static final field CPU Lcom/ragchat/embeddings/litert/LiteRtDelegateManager$DelegateTier;
+	public static final field GPU Lcom/ragchat/embeddings/litert/LiteRtDelegateManager$DelegateTier;
+	public static final field NNAPI Lcom/ragchat/embeddings/litert/LiteRtDelegateManager$DelegateTier;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/embeddings/litert/LiteRtDelegateManager$DelegateTier;
+	public static fun values ()[Lcom/ragchat/embeddings/litert/LiteRtDelegateManager$DelegateTier;
+}
+
+public final class com/ragchat/embeddings/local/OnDeviceEmbeddingProvider : android/content/ComponentCallbacks2, com/ragchat/api/embedding/EmbeddingProvider {
+	public fun <init> ()V
+	public fun <init> (Ljava/io/File;Ljava/nio/ByteBuffer;Ljava/lang/String;Ljava/lang/String;IIIZILcom/ragchat/embeddings/tokenizer/EmbeddingTokenizer;Lcom/ragchat/embeddings/litert/LiteRtDelegateManager$DelegateTier;Lcom/ragchat/api/logging/RagChatLogger;)V
+	public synthetic fun <init> (Ljava/io/File;Ljava/nio/ByteBuffer;Ljava/lang/String;Ljava/lang/String;IIIZILcom/ragchat/embeddings/tokenizer/EmbeddingTokenizer;Lcom/ragchat/embeddings/litert/LiteRtDelegateManager$DelegateTier;Lcom/ragchat/api/logging/RagChatLogger;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public fun embed (Ljava/util/List;Lcom/ragchat/api/embedding/EmbeddingTaskType;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getBatchSize ()I
+	public fun getDimensions ()I
+	public fun getMaxInputTokens ()I
+	public fun getModelId ()Ljava/lang/String;
+	public final fun getNativeDimensions ()I
+	public fun getNormalize ()Z
+	public fun getVersion ()Ljava/lang/String;
+	public fun onConfigurationChanged (Landroid/content/res/Configuration;)V
+	public fun onLowMemory ()V
+	public fun onTrimMemory (I)V
+	public final fun warmUp (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/embeddings/registry/EmbeddingRegistry {
+	public fun <init> (Lcom/ragchat/api/storage/VectorStore;Lcom/ragchat/api/logging/RagChatLogger;)V
+	public synthetic fun <init> (Lcom/ragchat/api/storage/VectorStore;Lcom/ragchat/api/logging/RagChatLogger;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun reembedCollection (Ljava/lang/String;Lcom/ragchat/api/embedding/EmbeddingProvider;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun reembedCollection$default (Lcom/ragchat/embeddings/registry/EmbeddingRegistry;Ljava/lang/String;Lcom/ragchat/api/embedding/EmbeddingProvider;ILkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun register (Lcom/ragchat/api/embedding/EmbeddingProvider;Z)V
+	public static synthetic fun register$default (Lcom/ragchat/embeddings/registry/EmbeddingRegistry;Lcom/ragchat/api/embedding/EmbeddingProvider;ZILjava/lang/Object;)V
+	public final fun validateCollectionIntegrity (Lcom/ragchat/api/model/CollectionSpec;Lcom/ragchat/api/embedding/EmbeddingProvider;)V
+}
+
+public final class com/ragchat/embeddings/registry/ModelMetadata {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;IIZ)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun component5 ()Z
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;IIZ)Lcom/ragchat/embeddings/registry/ModelMetadata;
+	public static synthetic fun copy$default (Lcom/ragchat/embeddings/registry/ModelMetadata;Ljava/lang/String;Ljava/lang/String;IIZILjava/lang/Object;)Lcom/ragchat/embeddings/registry/ModelMetadata;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDimensions ()I
+	public final fun getMaxInputTokens ()I
+	public final fun getModelId ()Ljava/lang/String;
+	public final fun getVersion ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isLocal ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/embeddings/registry/ReembeddingResult {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJ)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()I
+	public final fun component5 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJ)Lcom/ragchat/embeddings/registry/ReembeddingResult;
+	public static synthetic fun copy$default (Lcom/ragchat/embeddings/registry/ReembeddingResult;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJILjava/lang/Object;)Lcom/ragchat/embeddings/registry/ReembeddingResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChunksReembedded ()I
+	public final fun getCollectionId ()Ljava/lang/String;
+	public final fun getDurationMs ()J
+	public final fun getNewModelId ()Ljava/lang/String;
+	public final fun getOldModelId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/embeddings/tokenizer/EmbeddingTokenizer {
+	public abstract fun getBosTokenId ()I
+	public abstract fun getEosTokenId ()I
+	public abstract fun getPadTokenId ()I
+	public abstract fun tokenize (Ljava/lang/String;I)[I
+}
+
+public final class com/ragchat/embeddings/tokenizer/SimpleEmbeddingTokenizer : com/ragchat/embeddings/tokenizer/EmbeddingTokenizer {
+	public fun <init> ()V
+	public fun <init> (IIII)V
+	public synthetic fun <init> (IIIIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getBosTokenId ()I
+	public fun getEosTokenId ()I
+	public fun getPadTokenId ()I
+	public fun tokenize (Ljava/lang/String;I)[I
 }
 
