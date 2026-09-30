@@ -12,6 +12,107 @@ public final class com/ragchat/governance/PolicyEngine {
 	public final fun redact (Ljava/lang/String;)Ljava/lang/String;
 }
 
+public final class com/ragchat/governance/acl/AccessControlEnforcer {
+	public fun <init> ()V
+	public final fun filterAuthorizedResults (Ljava/util/List;Lcom/ragchat/api/governance/UserAcl;)Ljava/util/List;
+	public final fun isAuthorized (Lcom/ragchat/api/storage/SearchResult;Lcom/ragchat/api/governance/UserAcl;)Z
+}
+
+public final class com/ragchat/governance/audit/AuditLedgerEntry {
+	public fun <init> (JLjava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (JLjava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Lcom/ragchat/governance/audit/AuditLedgerEntry;
+	public static synthetic fun copy$default (Lcom/ragchat/governance/audit/AuditLedgerEntry;JLjava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/governance/audit/AuditLedgerEntry;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAction ()Ljava/lang/String;
+	public final fun getActorId ()Ljava/lang/String;
+	public final fun getCurrentHash ()Ljava/lang/String;
+	public final fun getDocumentIds ()Ljava/util/List;
+	public final fun getMetadataHash ()Ljava/lang/String;
+	public final fun getModelId ()Ljava/lang/String;
+	public final fun getPreviousHash ()Ljava/lang/String;
+	public final fun getSequenceNumber ()J
+	public final fun getTimestampEpochMs ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/governance/audit/HashChainedAuditLedger : com/ragchat/api/audit/AuditSink {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;I)V
+	public synthetic fun <init> (Ljava/lang/String;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun exportEntries ()Ljava/util/List;
+	public fun recordAudit (Ljava/lang/String;Ljava/util/Map;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun verifyIntegrity ()Lcom/ragchat/governance/audit/LedgerVerificationResult;
+}
+
+public abstract interface class com/ragchat/governance/audit/LedgerVerificationResult {
+}
+
+public final class com/ragchat/governance/audit/LedgerVerificationResult$Tampered : com/ragchat/governance/audit/LedgerVerificationResult {
+	public fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/ragchat/governance/audit/LedgerVerificationResult$Tampered;
+	public static synthetic fun copy$default (Lcom/ragchat/governance/audit/LedgerVerificationResult$Tampered;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/ragchat/governance/audit/LedgerVerificationResult$Tampered;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActualHash ()Ljava/lang/String;
+	public final fun getBrokenSequenceNumber ()J
+	public final fun getExpectedHash ()Ljava/lang/String;
+	public final fun getReason ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/governance/audit/LedgerVerificationResult$Valid : com/ragchat/governance/audit/LedgerVerificationResult {
+	public fun <init> (I)V
+	public final fun component1 ()I
+	public final fun copy (I)Lcom/ragchat/governance/audit/LedgerVerificationResult$Valid;
+	public static synthetic fun copy$default (Lcom/ragchat/governance/audit/LedgerVerificationResult$Valid;IILjava/lang/Object;)Lcom/ragchat/governance/audit/LedgerVerificationResult$Valid;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTotalEntries ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/governance/consent/ConsentManager : com/ragchat/api/governance/ConsentProvider {
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getActiveConsents ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun getAllRecords ()Ljava/util/List;
+	public final fun getRecord (Lcom/ragchat/api/governance/ConsentPurpose;)Lcom/ragchat/api/governance/ConsentRecord;
+	public fun hasConsent (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun onConsentWithdrawn (Lkotlin/jvm/functions/Function2;)V
+	public final fun setConsentUiCallback (Lcom/ragchat/api/governance/ConsentChoiceCallback;)V
+	public final fun updateConsent (Lcom/ragchat/api/governance/ConsentPurpose;ZILjava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun updateConsent$default (Lcom/ragchat/governance/consent/ConsentManager;Lcom/ragchat/api/governance/ConsentPurpose;ZILjava/util/Map;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class com/ragchat/governance/datasubject/DataSubjectStoragePurgeDelegate {
+	public abstract fun exportChatSessions (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun exportStoredDocuments (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun purgeDocument (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun purgeUserData (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/governance/datasubject/DefaultDataSubjectManager {
+	public fun <init> (Lcom/ragchat/governance/consent/ConsentManager;Lcom/ragchat/governance/datasubject/DataSubjectStoragePurgeDelegate;)V
+	public final fun deleteAllUserData (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun deleteDocument (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun exportAllUserData (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
 public final class com/ragchat/governance/dsl/PolicyBuilder {
 	public fun <init> ()V
 	public final fun allowedCloudRegions ([Ljava/lang/String;)V
@@ -132,6 +233,31 @@ public final class com/ragchat/governance/model/PolicyRule$MaxCloudTokensPerDay 
 public final class com/ragchat/governance/parser/PolicyJsonParser {
 	public static final field INSTANCE Lcom/ragchat/governance/parser/PolicyJsonParser;
 	public final fun parse (Ljava/lang/String;)Ljava/util/List;
+}
+
+public final class com/ragchat/governance/pii/ChecksumValidators {
+	public static final field INSTANCE Lcom/ragchat/governance/pii/ChecksumValidators;
+	public final fun isValidAadhaar (Ljava/lang/String;)Z
+	public final fun isValidCreditCard (Ljava/lang/String;)Z
+	public final fun isValidIban (Ljava/lang/String;)Z
+	public final fun isValidPan (Ljava/lang/String;)Z
+	public final fun isValidPhone (Ljava/lang/String;)Z
+}
+
+public final class com/ragchat/governance/pii/DefaultPiiDetector {
+	public fun <init> ()V
+	public fun <init> (Lcom/ragchat/api/governance/MlPiiDetector;)V
+	public synthetic fun <init> (Lcom/ragchat/api/governance/MlPiiDetector;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun detect (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/governance/pii/ReversiblePiiMasker : com/ragchat/api/governance/PiiRedactor {
+	public fun <init> ()V
+	public fun <init> (Lcom/ragchat/governance/pii/DefaultPiiDetector;)V
+	public synthetic fun <init> (Lcom/ragchat/governance/pii/DefaultPiiDetector;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun mask (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun redact (Ljava/lang/String;)Ljava/lang/String;
+	public final fun unmask (Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;
 }
 
 public final class com/ragchat/governance/quota/TokenUsageTracker {

@@ -373,12 +373,139 @@ public final class com/ragchat/api/error/SdkError$VectorStoreError : com/ragchat
 	public final fun getOperation ()Ljava/lang/String;
 }
 
+public abstract interface class com/ragchat/api/governance/ConsentChoiceCallback {
+	public abstract fun requestConsent (Lcom/ragchat/api/governance/ConsentPurpose;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
 public abstract interface class com/ragchat/api/governance/ConsentProvider {
 	public abstract fun hasConsent (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
+public final class com/ragchat/api/governance/ConsentPurpose : java/lang/Enum {
+	public static final field CLOUD_PROCESSING Lcom/ragchat/api/governance/ConsentPurpose;
+	public static final field LOCAL_PROCESSING Lcom/ragchat/api/governance/ConsentPurpose;
+	public static final field TELEMETRY Lcom/ragchat/api/governance/ConsentPurpose;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/governance/ConsentPurpose;
+	public static fun values ()[Lcom/ragchat/api/governance/ConsentPurpose;
+}
+
+public final class com/ragchat/api/governance/ConsentRecord {
+	public fun <init> (Lcom/ragchat/api/governance/ConsentPurpose;ZIJLjava/util/Map;)V
+	public synthetic fun <init> (Lcom/ragchat/api/governance/ConsentPurpose;ZIJLjava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/ragchat/api/governance/ConsentPurpose;
+	public final fun component2 ()Z
+	public final fun component3 ()I
+	public final fun component4 ()J
+	public final fun component5 ()Ljava/util/Map;
+	public final fun copy (Lcom/ragchat/api/governance/ConsentPurpose;ZIJLjava/util/Map;)Lcom/ragchat/api/governance/ConsentRecord;
+	public static synthetic fun copy$default (Lcom/ragchat/api/governance/ConsentRecord;Lcom/ragchat/api/governance/ConsentPurpose;ZIJLjava/util/Map;ILjava/lang/Object;)Lcom/ragchat/api/governance/ConsentRecord;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGranted ()Z
+	public final fun getMetadata ()Ljava/util/Map;
+	public final fun getPurpose ()Lcom/ragchat/api/governance/ConsentPurpose;
+	public final fun getTimestampEpochMs ()J
+	public final fun getVersion ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/governance/DataSubjectExport {
+	public fun <init> (Ljava/lang/String;JLjava/util/List;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;JLjava/util/List;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;JLjava/util/List;Ljava/util/List;Ljava/util/List;)Lcom/ragchat/api/governance/DataSubjectExport;
+	public static synthetic fun copy$default (Lcom/ragchat/api/governance/DataSubjectExport;Ljava/lang/String;JLjava/util/List;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lcom/ragchat/api/governance/DataSubjectExport;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChatSessions ()Ljava/util/List;
+	public final fun getConsentHistory ()Ljava/util/List;
+	public final fun getDocuments ()Ljava/util/List;
+	public final fun getExportTimestampEpochMs ()J
+	public final fun getUserId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/governance/DeletionReceipt {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;IIJLjava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;IIJLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;IIJLjava/lang/String;)Lcom/ragchat/api/governance/DeletionReceipt;
+	public static synthetic fun copy$default (Lcom/ragchat/api/governance/DeletionReceipt;Ljava/lang/String;Ljava/lang/String;IIJLjava/lang/String;ILjava/lang/Object;)Lcom/ragchat/api/governance/DeletionReceipt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChunkCount ()I
+	public final fun getDocumentCount ()I
+	public final fun getProofHash ()Ljava/lang/String;
+	public final fun getRequestId ()Ljava/lang/String;
+	public final fun getTimestampEpochMs ()J
+	public final fun getUserId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/ragchat/api/governance/MlPiiDetector {
+	public abstract fun detect (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/api/governance/PiiEntity {
+	public fun <init> (Lcom/ragchat/api/governance/PiiType;Ljava/lang/String;IIF)V
+	public synthetic fun <init> (Lcom/ragchat/api/governance/PiiType;Ljava/lang/String;IIFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/ragchat/api/governance/PiiType;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun component5 ()F
+	public final fun copy (Lcom/ragchat/api/governance/PiiType;Ljava/lang/String;IIF)Lcom/ragchat/api/governance/PiiEntity;
+	public static synthetic fun copy$default (Lcom/ragchat/api/governance/PiiEntity;Lcom/ragchat/api/governance/PiiType;Ljava/lang/String;IIFILjava/lang/Object;)Lcom/ragchat/api/governance/PiiEntity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConfidence ()F
+	public final fun getEndOffset ()I
+	public final fun getStartOffset ()I
+	public final fun getType ()Lcom/ragchat/api/governance/PiiType;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/ragchat/api/governance/PiiMaskResult {
+	public fun <init> (Ljava/lang/String;Ljava/util/Map;Ljava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/Map;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/Map;Ljava/util/List;)Lcom/ragchat/api/governance/PiiMaskResult;
+	public static synthetic fun copy$default (Lcom/ragchat/api/governance/PiiMaskResult;Ljava/lang/String;Ljava/util/Map;Ljava/util/List;ILjava/lang/Object;)Lcom/ragchat/api/governance/PiiMaskResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDetectedEntities ()Ljava/util/List;
+	public final fun getMaskedText ()Ljava/lang/String;
+	public final fun getTokenMap ()Ljava/util/Map;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public abstract interface class com/ragchat/api/governance/PiiRedactor {
 	public abstract fun redact (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/ragchat/api/governance/PiiType : java/lang/Enum {
+	public static final field AADHAAR Lcom/ragchat/api/governance/PiiType;
+	public static final field CREDIT_CARD Lcom/ragchat/api/governance/PiiType;
+	public static final field CUSTOM Lcom/ragchat/api/governance/PiiType;
+	public static final field EMAIL Lcom/ragchat/api/governance/PiiType;
+	public static final field IBAN Lcom/ragchat/api/governance/PiiType;
+	public static final field PAN Lcom/ragchat/api/governance/PiiType;
+	public static final field PHONE Lcom/ragchat/api/governance/PiiType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/governance/PiiType;
+	public static fun values ()[Lcom/ragchat/api/governance/PiiType;
 }
 
 public abstract interface class com/ragchat/api/governance/PolicyDecision {
@@ -406,6 +533,34 @@ public final class com/ragchat/api/governance/PolicyDecision$Denied : com/ragcha
 
 public abstract interface class com/ragchat/api/governance/PolicyProvider {
 	public abstract fun evaluate (Ljava/lang/String;Ljava/util/Map;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/ragchat/api/governance/SecurityClassification : java/lang/Enum {
+	public static final field CONFIDENTIAL Lcom/ragchat/api/governance/SecurityClassification;
+	public static final field INTERNAL Lcom/ragchat/api/governance/SecurityClassification;
+	public static final field PUBLIC Lcom/ragchat/api/governance/SecurityClassification;
+	public static final field RESTRICTED Lcom/ragchat/api/governance/SecurityClassification;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/ragchat/api/governance/SecurityClassification;
+	public static fun values ()[Lcom/ragchat/api/governance/SecurityClassification;
+}
+
+public final class com/ragchat/api/governance/UserAcl {
+	public fun <init> (Ljava/lang/String;Lcom/ragchat/api/governance/SecurityClassification;Ljava/util/Set;Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/ragchat/api/governance/SecurityClassification;Ljava/util/Set;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/ragchat/api/governance/SecurityClassification;
+	public final fun component3 ()Ljava/util/Set;
+	public final fun component4 ()Ljava/util/Map;
+	public final fun copy (Ljava/lang/String;Lcom/ragchat/api/governance/SecurityClassification;Ljava/util/Set;Ljava/util/Map;)Lcom/ragchat/api/governance/UserAcl;
+	public static synthetic fun copy$default (Lcom/ragchat/api/governance/UserAcl;Ljava/lang/String;Lcom/ragchat/api/governance/SecurityClassification;Ljava/util/Set;Ljava/util/Map;ILjava/lang/Object;)Lcom/ragchat/api/governance/UserAcl;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAttributes ()Ljava/util/Map;
+	public final fun getClearance ()Lcom/ragchat/api/governance/SecurityClassification;
+	public final fun getRoles ()Ljava/util/Set;
+	public final fun getUserId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public abstract interface class com/ragchat/api/ingestion/Chunker {
