@@ -1,0 +1,7 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.ragchat.api////PointingToDeclaration/sdk-api/com.ragchat.api/index.html
+$dokka.location:com.ragchat.api/RagChatApi///PointingToDeclaration/sdk-api/com.ragchat.api/-rag-chat-api/index.html
+$dokka.location:com.ragchat.api/RagChatApi/version/#/PointingToDeclaration/sdk-api/com.ragchat.api/-rag-chat-api/version.html
+com.ragchat.api
+

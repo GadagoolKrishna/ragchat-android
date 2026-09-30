@@ -1,0 +1,32 @@
+build:
+  maxIssues: 0
+  weights:
+    complexity: 2
+    LongParameterList: 1
+    style: 1
+    comments: 1
+
+complexity:
+  active: true
+  LongMethod:
+    threshold: 60
+  LargeClass:
+    threshold: 600
+
+style:
+  active: true
+  MagicNumber:
+    active: false
+  WildcardImport:
+    active: true
+
+naming:
+  active: true
+  FunctionNaming:
+    ignoreAnnotated: ['Composable']
+
+empty-blocks:
+  active: true
+
+potential-bugs:
+  active: true

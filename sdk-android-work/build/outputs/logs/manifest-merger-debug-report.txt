@@ -1,0 +1,16 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /config/Desktop/ragchat-android/sdk-android-work/src/main/AndroidManifest.xml:2:1-3:12
+INJECTED from /config/Desktop/ragchat-android/sdk-android-work/src/main/AndroidManifest.xml:2:1-3:12
+	package
+		INJECTED from /config/Desktop/ragchat-android/sdk-android-work/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /config/Desktop/ragchat-android/sdk-android-work/src/main/AndroidManifest.xml:2:11-69
+uses-sdk
+INJECTED from /config/Desktop/ragchat-android/sdk-android-work/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /config/Desktop/ragchat-android/sdk-android-work/src/main/AndroidManifest.xml
+INJECTED from /config/Desktop/ragchat-android/sdk-android-work/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /config/Desktop/ragchat-android/sdk-android-work/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /config/Desktop/ragchat-android/sdk-android-work/src/main/AndroidManifest.xml

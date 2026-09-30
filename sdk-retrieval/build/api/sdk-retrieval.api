@@ -1,0 +1,6 @@
+public final class com/ragchat/retrieval/HybridSearchEngine {
+	public fun <init> ()V
+	public final fun computeRrf (Ljava/util/List;I)D
+	public static synthetic fun computeRrf$default (Lcom/ragchat/retrieval/HybridSearchEngine;Ljava/util/List;IILjava/lang/Object;)D
+}
+

@@ -1,0 +1,4 @@
+public final class com/ragchat/ui/compose/ChatViewKt {
+	public static final fun ChatView (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
+}
+

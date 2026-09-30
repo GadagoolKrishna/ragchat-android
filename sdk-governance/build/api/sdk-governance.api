@@ -1,0 +1,5 @@
+public final class com/ragchat/governance/PolicyEngine {
+	public fun <init> ()V
+	public final fun redact (Ljava/lang/String;)Ljava/lang/String;
+}
+

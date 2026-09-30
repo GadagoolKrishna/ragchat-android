@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.ragchat.benchmark.benchmarks-mergeDebugResources-50:/values-v28/values-v28.xml",
+            "map": [
+                {
+                    "source": "/config/.gradle/caches/8.11.1/transforms/f7cfd0e4f2b05a617e0d79ddfb4783ea/transformed/core-1.6.1/res/values-v28/values.xml",
+                    "from": {
+                        "startLines": "4,13",
+                        "startColumns": "0,0",
+                        "startOffsets": "146,625",
+                        "endLines": "12,21",
+                        "endColumns": "8,8",
+                        "endOffsets": "624,1101"
+                    },
+                    "to": {
+                        "startLines": "2,11",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,538",
+                        "endLines": "10,19",
+                        "endColumns": "8,8",
+                        "endOffsets": "533,1014"
+                    }
+                }
+            ]
+        }
+    ]
+}

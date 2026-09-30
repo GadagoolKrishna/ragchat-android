@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.ragchat.ui.compose.sdk-ui-compose-mergeReleaseResources-39:/values-v30/values-v30.xml",
+            "map": [
+                {
+                    "source": "/config/.gradle/caches/8.11.1/transforms/cd0bd91363d5e20456f17a6153472171/transformed/material3-release/res/values-v30/values-v30.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "72",
+                        "endOffsets": "123"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.ragchat.ui.compose.sdk-ui-compose-release-41:/values-v30/values-v30.xml",
+            "map": [
+                {
+                    "source": "/config/.gradle/caches/8.11.1/transforms/cd0bd91363d5e20456f17a6153472171/transformed/material3-release/res/values-v30/values-v30.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "72",
+                        "endOffsets": "123"
+                    }
+                }
+            ]
+        }
+    ]
+}

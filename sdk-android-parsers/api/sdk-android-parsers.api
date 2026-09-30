@@ -1,0 +1,5 @@
+public final class com/ragchat/parsers/DocumentParserManager {
+	public fun <init> ()V
+	public final fun getModuleName ()Ljava/lang/String;
+}
+

@@ -1,0 +1,1 @@
+{"@class":"org.jetbrains.dokka.base.templating.AddToSourcesetDependencies","moduleName":"sdk-android-parsers","content":{":sdk-android-parsers:dokkaHtmlPartial/debug":[],":sdk-android-parsers:dokkaHtmlPartial/main":[],":sdk-android-parsers:dokkaHtmlPartial/release":[]}}

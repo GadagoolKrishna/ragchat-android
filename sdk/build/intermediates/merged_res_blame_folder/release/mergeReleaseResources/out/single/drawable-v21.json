@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.ragchat.sdk-release-50:/drawable-v21/notification_action_background.xml",
+        "source": "com.ragchat.sdk-core-1.15.0-14:/drawable-v21/notification_action_background.xml"
+    }
+]

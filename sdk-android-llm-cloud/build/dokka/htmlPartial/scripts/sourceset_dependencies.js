@@ -1,0 +1,1 @@
+{"@class":"org.jetbrains.dokka.base.templating.AddToSourcesetDependencies","moduleName":"sdk-android-llm-cloud","content":{":sdk-android-llm-cloud:dokkaHtmlPartial/debug":[],":sdk-android-llm-cloud:dokkaHtmlPartial/main":[],":sdk-android-llm-cloud:dokkaHtmlPartial/release":[]}}

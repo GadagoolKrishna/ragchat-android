@@ -1,0 +1,4 @@
+public abstract interface class com/ragchat/api/RagChatApi {
+	public abstract fun getVersion ()Ljava/lang/String;
+}
+
